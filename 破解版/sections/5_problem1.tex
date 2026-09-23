@@ -1,0 +1,151 @@
+\section{问题一的模型建立与求解}
+
+\subsection{航段几何与三段式能耗模型}
+
+问题一每个架次为单点直接往返 $O01\to S_i\to O01$。依据附录 2，任意两节点间以水平直线为航段，计划巡航海拔取沿途 $30\,$m DEM\cite{ref_dem} 像元最高地面高程加 $50\,$m 净空。设去程水平巡航距离为 $d_i$，去程爬升高度 $h^{\uparrow}$、下降高度 $h^{\downarrow}$ 由节点作业高度（$O01$ 取地面海拔，$S_i$ 取地面海拔$+30\,$m）与巡航海拔确定。基于附件解析得到的各服务区航段几何见表~\ref{tab:geo}（节选）。
+
+\begin{table}[htbp]
+\centering
+\caption{各服务区航段几何参数（节选）}
+\label{tab:geo}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c|c|c|c|c}
+\toprule
+服务区 & 水平距离/m & 巡航海拔/m & 去程爬升/m & 去程下降/m \\
+\midrule
+$S_{001}$ & 3063.4 & 283.7 & 156.0 & 99.7 \\
+$S_{003}$ & 7261.1 & 561.8 & 434.1 & 223.3 \\
+$S_{008}$ & 8109.5 & 372.9 & 245.2 & 102.0 \\
+$S_{014}$ & 5410.9 & 591.9 & 464.2 & 240.9 \\
+$S_{015}$ & 6019.1 & 571.8 & 444.1 & 97.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+由于运输机规格仅给出空载/满载标准航程与效率而无巡航功率列，本文依据附录 2 用\textbf{等效航程包络}反推单位距离能耗，该做法与无人机配送能耗建模的主流方法一致\cite{ref_dorling,ref_zhang}。机型 $g$ 携带有效载荷 $q$ 时的等效航程取
+\begin{equation}
+L_g(q)=L_g^{0}-\left(L_g^{0}-L_g^{1}\right)\left(\frac{q}{Q_g}\right)^{1.5},
+\end{equation}
+其中 $L_g^{0},L_g^{1}$ 为机型 $g$ 的空载、满载标准航程，$Q_g$ 为最大载货质量。航段飞行时间按三阶段求和：
+\begin{equation}
+t_{ij}=\frac{d_{ij}}{v_g^{\text{cru}}}+\frac{h^{\uparrow}_{ij}}{v_g^{\uparrow}}+\frac{h^{\downarrow}_{ij}}{v_g^{\downarrow}}.
+\end{equation}
+航段能耗为水平巡航能耗与爬升附加能耗之和（下降效率取 $0$，不单列）：
+\begin{equation}
+E_{ij}(q)=\underbrace{\frac{d_{ij}}{L_g(q)}\,B_g}_{\text{水平巡航}}+\underbrace{\frac{(m_g^{0}+q)\,g_0\,h^{\uparrow}_{ij}}{3.6\times10^{6}\,\eta^{\uparrow}_g}}_{\text{爬升附加}},
+\end{equation}
+其中 $B_g$ 为单组电池可用能量（水平能耗由“行驶 $L_g(q)$ 恰好耗尽一组电池”折算），$m_g^{0}$ 为空载总质量，$g_0=9.8\,\mathrm{m/s^2}$，$\eta^{\uparrow}_g$ 为爬升能耗效率。
+
+\subsection{最大安全载荷模型}
+
+每个往返架次须满足返航安全能量余量约束：往返总能耗不得超过单组电池可用能量的 $(1-\eta_g)$ 倍：
+\begin{equation}
+E_{O\to S_i}(q)+E_{S_i\to O}(q)\;\le\;(1-\eta_g)\,B_g .
+\label{eq:safe}
+\end{equation}
+由于往返总能耗关于载荷 $q$ 单调递增，定义临界能量受限载荷 $q^{\text{en}}_{g,i}$ 为式~\eqref{eq:safe} 取等号之解，用一维求根（Brent 方法）稳定求得。最大安全载荷为质量上限与能量上限之较小值：
+\begin{equation}
+q^{\max}_{g,i}=\min\!\left\{Q_g,\;q^{\text{en}}_{g,i}\right\}.
+\end{equation}
+
+求解得到 $3\times15=45$ 组结果：机型 A 在全部 15 区均为质量受限 $q^{\max}=25.00\,$kg；机型 B 除 $S_{008}$ 为能量受限 $28.88\,$kg 外均为 $30.00\,$kg；机型 C 有 5 个较远/爬升较大的服务区能量受限（$S_{002}$ 69.01、$S_{003}$ 68.29、$S_{004}$ 63.79、$S_{008}$ 59.13、$S_{012}$ 68.21\,kg），其余 10 区为质量受限 $80.00\,$kg。三型对全部服务区均可行。最大安全载荷的机型—服务区分布及能量/质量受限边界如图~\ref{fig:q1_qmax} 所示，可见 C 型在远端服务区的载荷被返航安全余量显著压缩，是后续组批中远端重载服务区的关键约束来源。
+
+\begin{figure}[htbp]
+  \centering
+  \subfloat[最大安全载荷热力分布]{\includegraphics[width=0.49\textwidth]{q1_1_01.png}}
+  \hfill
+  \subfloat[能量受限临界载荷]{\includegraphics[width=0.49\textwidth]{q1_1_02.png}}
+  \caption{三机型最大安全载荷分析}
+  \label{fig:q1_qmax}
+\end{figure}
+
+\subsection{货箱组批的集合划分模型}
+
+组批需将各服务区货箱分配到若干往返架次，货箱不可拆分、每箱仅安排一次，且不得跨服务区组批。对服务区 $S_i$ 与机型 $g$，一个\textbf{可行批次}是货箱子集 $b\subseteq \mathcal{B}_i$，满足载质量与装载体积两类容量约束：
+\begin{equation}
+\sum_{k\in b} w_k \le q^{\max}_{g,i},\qquad \sum_{k\in b} v_k \le V_g,
+\end{equation}
+其中 $w_k,v_k$ 为货箱质量、体积，$V_g$ 为机型可用装载体积。以 DFS 深度剪枝精确枚举全部服务区—机型的可行批次，构成候选批次池 $\mathcal{P}$（规模 $|\mathcal{P}|=19525$）。引入 $0$-$1$ 变量 $x_b$ 表示批次 $b$ 是否被选用，建立\textbf{集合划分（Set Partitioning）}模型：每个货箱恰被覆盖一次
+\begin{equation}
+\sum_{b\in\mathcal{P}:\,k\in b} x_b = 1,\qquad \forall k\in\mathcal{B},\qquad x_b\in\{0,1\}.
+\end{equation}
+三项优化目标为往返架次数、总运输能耗与累计作业时间：
+\begin{equation}
+N=\sum_{b} x_b,\quad
+E_{\text{total}}=\sum_{b} e_b x_b,\quad
+T_{\text{total}}=\sum_{b} \tau_b x_b,
+\end{equation}
+其中 $e_b,\tau_b$ 为批次 $b$ 的往返能耗与作业时间（含固定准备、装载、交接时间）。
+
+\subsection{多目标求解：线性加权法与理想点法}
+
+\textbf{方法一（线性加权法）.} 将三目标归一化后线性加权为单一目标，转化为标准 MILP 精确求解：
+\begin{equation}
+\min\; w_N\tilde N+w_E\tilde E_{\text{total}}+w_T\tilde T_{\text{total}},\qquad w_N+w_E+w_T=1.
+\end{equation}
+取均衡权重 $(\tfrac13,\tfrac13,\tfrac13)$、架次优先 $(0.6,0.2,0.2)$、能耗优先 $(0.2,0.6,0.2)$ 三组权重求解，三组均收敛到同一方案：$N=18$、$E_{\text{total}}=59.072\,$kWh、$T_{\text{total}}=32801.7\,$s（$9.11\,$h），覆盖 $80/80$ 货箱。权重不敏感表明三目标在最优域附近近乎不冲突。
+
+\textbf{方法二（理想点法 / Chebyshev 妥协规划）.} 先分别单独最小化各目标得支付表，构造理想点与劣点，再最小化各目标相对理想点的最大加权偏差：
+\begin{equation}
+\min_{x}\ \max_{m\in\{N,E,T\}}\ \lambda_m\frac{f_m(x)-f_m^{*}}{f_m^{\text{nad}}-f_m^{*}} .
+\end{equation}
+支付表为
+\begin{equation*}
+\begin{aligned}
+&\min N\to(18,\,59.105,\,32807.7),\quad
+\min E\to(19,\,58.975,\,34463.8),\\
+&\min T\to(18,\,59.125,\,32801.7),
+\end{aligned}
+\end{equation*}
+故理想点 $(N^*,E^*,T^*)=(18,\,58.975,\,32801.7)$，劣点 $(19,\,59.125,\,34463.8)$。等权 Chebyshev 妥协解 $z=0.2152$：$N=18$、$E_{\text{total}}=59.072\,$kWh、$T_{\text{total}}=32801.7\,$s，相对理想点偏离 $N{+}0.0\%$、$E{+}0.2\%$、$T{+}0.0\%$。
+
+两种方法给出完全一致的最优组批（$N=18$，B 型 9 架次、C 型 9 架次，A 型未用），平均质量利用率 $79.8\%$、体积利用率 $76.7\%$。方法一的权重扫描收敛性与方法二的支付表/妥协前沿见图~\ref{fig:q1_opt}。表~\ref{tab:q1_batch} 给出各服务区组批构成。
+
+\begin{figure}[htbp]
+  \centering
+  \subfloat[线性加权法权重扫描收敛]{\includegraphics[width=0.48\textwidth]{q1_21_01.png}}
+  \hfill
+  \subfloat[理想点法支付表与妥协前沿]{\includegraphics[width=0.48\textwidth]{q1_22_01.png}}
+  \\
+  \subfloat[组批利用率分布]{\includegraphics[width=0.48\textwidth]{q1_21_02.png}}
+  \hfill
+  \subfloat[三目标权衡关系]{\includegraphics[width=0.48\textwidth]{q1_22_02.png}}
+  \caption{问题一三目标优化结果}
+  \label{fig:q1_opt}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{最优组批各服务区架次构成}
+\label{tab:q1_batch}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c|c|c||c|c|c}
+\toprule
+服务区 & 架次数 & 机型 & 服务区 & 架次数 & 机型 \\
+\midrule
+$S_{001}$ & 2 & C,C & $S_{008}$ & 1 & C \\
+$S_{002}$ & 2 & C,B & $S_{009}$ & 1 & B \\
+$S_{003}$ & 2 & C,B & $S_{010}$ & 1 & B \\
+$S_{004}$ & 1 & C & $S_{011}$ & 1 & B \\
+$S_{005}$ & 1 & C & $S_{012}$ & 1 & B \\
+$S_{006}$ & 1 & C & $S_{013}$ & 1 & B \\
+$S_{007}$ & 1 & C & $S_{014}$ & 1 & B \\
+ & & & $S_{015}$ & 1 & B \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{三目标权衡关系}
+
+支付表显示：单独最小化能耗时架次数升至 $19$（拆出小批降低单位能耗），而架次优先与时间优先均在 $N=18$ 取得；三目标的冲突集中在“是否多拆一个小架次以省 $0.15\,$kWh 能耗、代价是多 $1.6\times10^{3}\,$s 作业时间”这一权衡上。由于能耗降幅（$0.2\%$）远小于时间与架次的增幅，最优域坍缩为单一妥协解，说明本场景下三目标近似同向、组批方案稳健。返航安全余量对该结论的影响将在第~\ref{sec:sens} 节敏感性分析中讨论。
+
+\subsection{最大安全载荷的多维特性分析}
+
+为进一步刻画机型、地形与载荷之间的耦合关系，图~\ref{fig:adv_q1} 从四个视角展开分析。图~\ref{fig:adv_q1}(a) 的分组箱线—蜂群图显示：机型 A 载荷恒为 $25\,$kg（分布退化为一点，全部质量受限），机型 B 集中于 $30\,$kg 附近，机型 C 分布跨度最大（$59\!\sim\!80\,$kg），其下侧离群点正对应远端能量受限服务区。图~\ref{fig:adv_q1}(b) 的能耗—距离气泡图表明满载往返能耗随水平距离近似线性增长，且同一距离下 C 型（大载荷、大气泡）能耗显著高于 A/B，是能量约束在远端收紧的根源。图~\ref{fig:adv_q1}(c) 定量给出受限类型构成：A 型 $15$ 区全部质量受限，B 型 $14$ 区质量受限、$1$ 区（$S_{008}$）能量受限，C 型 $10$ 区质量受限、$5$ 区能量受限，与前文结论一致。图~\ref{fig:adv_q1}(d) 的平行坐标进一步显示 C 型（红色）在“远距离＋高巡航海拔”组合下安全载荷被明显压低，而 A/B 型（蓝、橙）几乎不受地形影响、稳定落在质量上限。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{adv_q1.png}
+  \caption{最大安全载荷多维特性}
+  \label{fig:adv_q1}
+\end{figure}
