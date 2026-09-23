@@ -1,0 +1,60 @@
+{
+  "blocks": [
+    {
+      "title": "问题一：安全载荷与组批",
+      "sections": [
+        {
+          "type": "pipeline",
+          "steps": [
+            {"text": "读取任务参数", "detail": {"rows": [{"full": "15 个服务区，80 个货箱"}]}},
+            {"text": "计算安全载荷", "tone2": true, "detail": {"frame": "blue", "rows": [{"full": "机型、航程与返航储备"}]}},
+            {"text": "不可拆箱组批", "emph": "blue", "detail": {"rows": [{"full": "质量、体积与能量约束"}]}},
+            {"text": "形成运输基线", "emph": "black", "detail": {"rows": [{"full": "18 个单区架次"}]}}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "问题二：运输与排程",
+      "sections": [
+        {
+          "type": "pipeline",
+          "steps": [
+            {"text": "生成路线候选", "detail": {"rows": [{"full": "单区与双区闭环路线"}]}},
+            {"text": "安排起飞时刻", "tone2": true, "detail": {"frame": "blue", "rows": [{"full": "硬时限与逐箱送达"}]}},
+            {"text": "分配飞机电池", "emph": "blue", "detail": {"rows": [{"full": "任务占用与充电周转"}]}},
+            {"text": "得到排程结果", "emph": "black", "detail": {"rows": [{"full": "20 架次，完工 9980 s"}]}}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "问题三：运输通信保障",
+      "sections": [
+        {
+          "type": "pipeline",
+          "steps": [
+            {"text": "读取通信任务", "detail": {"rows": [{"full": "沿用固定运输时序"}]}},
+            {"text": "选择直连中继", "tone2": true, "detail": {"frame": "blue", "rows": [{"full": "地形视距与双向链路预算"}]}},
+            {"text": "配置中继资源", "emph": "blue", "detail": {"rows": [{"full": "服务时段与能源组件"}]}},
+            {"text": "统计通信方案", "emph": "black", "detail": {"rows": [{"full": "14 直连，6 个中继任务"}]}}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "问题四：固定方案分区",
+      "sections": [
+        {
+          "type": "pipeline",
+          "steps": [
+            {"text": "合并跨区组件", "detail": {"rows": [{"full": "13 个不可拆组件"}]}},
+            {"text": "枚举独立分区", "tone2": true, "detail": {"frame": "blue", "rows": [{"full": "K=2 与 K=3 全分区"}]}},
+            {"text": "计算资源峰值", "emph": "blue", "detail": {"rows": [{"full": "飞机、电池及中继组件"}]}},
+            {"text": "比较库存缺口", "emph": "black", "detail": {"rows": [{"full": "K=2 缺 3，K=3 缺 4"}]}}
+          ]
+        }
+      ]
+    }
+  ]
+}

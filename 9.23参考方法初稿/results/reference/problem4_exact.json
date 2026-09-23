@@ -1,0 +1,3311 @@
+{
+  "components": [
+    {
+      "component_id": 0,
+      "zones": [
+        "S001"
+      ]
+    },
+    {
+      "component_id": 1,
+      "zones": [
+        "S002"
+      ]
+    },
+    {
+      "component_id": 2,
+      "zones": [
+        "S003"
+      ]
+    },
+    {
+      "component_id": 3,
+      "zones": [
+        "S004"
+      ]
+    },
+    {
+      "component_id": 4,
+      "zones": [
+        "S005"
+      ]
+    },
+    {
+      "component_id": 5,
+      "zones": [
+        "S006"
+      ]
+    },
+    {
+      "component_id": 6,
+      "zones": [
+        "S007"
+      ]
+    },
+    {
+      "component_id": 7,
+      "zones": [
+        "S008",
+        "S011"
+      ]
+    },
+    {
+      "component_id": 8,
+      "zones": [
+        "S009"
+      ]
+    },
+    {
+      "component_id": 9,
+      "zones": [
+        "S010",
+        "S013"
+      ]
+    },
+    {
+      "component_id": 10,
+      "zones": [
+        "S012"
+      ]
+    },
+    {
+      "component_id": 11,
+      "zones": [
+        "S014"
+      ]
+    },
+    {
+      "component_id": 12,
+      "zones": [
+        "S015"
+      ]
+    }
+  ],
+  "stock": {
+    "drone_A": 4,
+    "drone_B": 2,
+    "drone_C": 2,
+    "battery_A": 6,
+    "battery_B": 4,
+    "battery_C": 4,
+    "relay_drone": 2,
+    "relay_component": 6
+  },
+  "summaries": {
+    "2": {
+      "k": 2,
+      "objective": [
+        3,
+        23,
+        24417.259296450087,
+        4
+      ],
+      "total_gaps_min": {
+        "drone_A": 0,
+        "drone_B": 0,
+        "drone_C": 1,
+        "battery_A": 0,
+        "battery_B": 0,
+        "battery_C": 0,
+        "relay_drone": 2,
+        "relay_component": 0
+      },
+      "total_gaps_conservative": {
+        "drone_A": 0,
+        "drone_B": 0,
+        "drone_C": 2,
+        "battery_A": 0,
+        "battery_B": 0,
+        "battery_C": 2,
+        "relay_drone": 0,
+        "relay_component": 0
+      },
+      "total_requirements_min": {
+        "drone_A": 1,
+        "drone_B": 2,
+        "drone_C": 3,
+        "battery_A": 1,
+        "battery_B": 4,
+        "battery_C": 4,
+        "relay_drone": 4,
+        "relay_component": 4
+      },
+      "total_used_ids": {
+        "drone_A": 1,
+        "drone_B": 2,
+        "drone_C": 4,
+        "battery_A": 1,
+        "battery_B": 4,
+        "battery_C": 6,
+        "relay_drone": 2,
+        "relay_component": 5
+      },
+      "groups": [
+        {
+          "component_mask": 537,
+          "zones": [
+            "S001",
+            "S004",
+            "S005",
+            "S010",
+            "S013"
+          ],
+          "trip_ids": [
+            "pair-12-15-1-C",
+            "single-S001-1",
+            "single-S001-2",
+            "single-S004-1",
+            "single-S005-1"
+          ],
+          "requirements_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 1,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 2,
+            "relay_drone": 1,
+            "relay_component": 1
+          },
+          "used_ids": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 2,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 3,
+            "relay_drone": 1,
+            "relay_component": 1
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 8728.640939350049,
+            "box_count": 33,
+            "transport_energy_kwh": 20.143310622840755,
+            "relay_service_s": 757.0
+          },
+          "relay_mission_ids": [
+            "RM04"
+          ]
+        },
+        {
+          "component_mask": 7654,
+          "zones": [
+            "S002",
+            "S003",
+            "S006",
+            "S007",
+            "S008",
+            "S011",
+            "S009",
+            "S012",
+            "S014",
+            "S015"
+          ],
+          "trip_ids": [
+            "alt-S006-29-C",
+            "alt-S006-7-B",
+            "alt-S006-8-B",
+            "alt-S007-0-B",
+            "alt-S007-16-B",
+            "alt-S007-7-B",
+            "pair-10-13-2-C",
+            "single-S002-1",
+            "single-S002-2",
+            "single-S003-1",
+            "single-S003-2",
+            "single-S009-1",
+            "single-S012-1",
+            "single-S014-1",
+            "single-S015-1"
+          ],
+          "requirements_min": {
+            "drone_A": 1,
+            "drone_B": 2,
+            "drone_C": 2,
+            "battery_A": 1,
+            "battery_B": 4,
+            "battery_C": 2,
+            "relay_drone": 3,
+            "relay_component": 3
+          },
+          "used_ids": {
+            "drone_A": 1,
+            "drone_B": 2,
+            "drone_C": 2,
+            "battery_A": 1,
+            "battery_B": 4,
+            "battery_C": 3,
+            "relay_drone": 1,
+            "relay_component": 4
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 1,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 23780.54965879702,
+            "box_count": 47,
+            "transport_energy_kwh": 41.06447921285115,
+            "relay_service_s": 3006.0
+          },
+          "relay_mission_ids": [
+            "RM01",
+            "RM02",
+            "RM03",
+            "RM05",
+            "RM06"
+          ]
+        }
+      ]
+    },
+    "3": {
+      "k": 3,
+      "objective": [
+        4,
+        24,
+        28086.747039437436,
+        5
+      ],
+      "total_gaps_min": {
+        "drone_A": 0,
+        "drone_B": 0,
+        "drone_C": 1,
+        "battery_A": 0,
+        "battery_B": 0,
+        "battery_C": 1,
+        "relay_drone": 2,
+        "relay_component": 0
+      },
+      "total_gaps_conservative": {
+        "drone_A": 0,
+        "drone_B": 0,
+        "drone_C": 2,
+        "battery_A": 0,
+        "battery_B": 0,
+        "battery_C": 4,
+        "relay_drone": 0,
+        "relay_component": 0
+      },
+      "total_requirements_min": {
+        "drone_A": 1,
+        "drone_B": 2,
+        "drone_C": 3,
+        "battery_A": 1,
+        "battery_B": 4,
+        "battery_C": 5,
+        "relay_drone": 4,
+        "relay_component": 4
+      },
+      "total_used_ids": {
+        "drone_A": 1,
+        "drone_B": 2,
+        "drone_C": 4,
+        "battery_A": 1,
+        "battery_B": 4,
+        "battery_C": 8,
+        "relay_drone": 2,
+        "relay_component": 5
+      },
+      "groups": [
+        {
+          "component_mask": 25,
+          "zones": [
+            "S001",
+            "S004",
+            "S005"
+          ],
+          "trip_ids": [
+            "single-S001-1",
+            "single-S001-2",
+            "single-S004-1",
+            "single-S005-1"
+          ],
+          "requirements_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 1,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 2,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "used_ids": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 2,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 3,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 6737.008578949133,
+            "box_count": 27,
+            "transport_energy_kwh": 16.07668418612253,
+            "relay_service_s": 0.0
+          },
+          "relay_mission_ids": []
+        },
+        {
+          "component_mask": 7526,
+          "zones": [
+            "S002",
+            "S003",
+            "S006",
+            "S007",
+            "S009",
+            "S012",
+            "S014",
+            "S015"
+          ],
+          "trip_ids": [
+            "alt-S006-29-C",
+            "alt-S006-7-B",
+            "alt-S006-8-B",
+            "alt-S007-0-B",
+            "alt-S007-16-B",
+            "alt-S007-7-B",
+            "single-S002-1",
+            "single-S002-2",
+            "single-S003-1",
+            "single-S003-2",
+            "single-S009-1",
+            "single-S012-1",
+            "single-S014-1",
+            "single-S015-1"
+          ],
+          "requirements_min": {
+            "drone_A": 1,
+            "drone_B": 2,
+            "drone_C": 1,
+            "battery_A": 1,
+            "battery_B": 4,
+            "battery_C": 2,
+            "relay_drone": 3,
+            "relay_component": 3
+          },
+          "used_ids": {
+            "drone_A": 1,
+            "drone_B": 2,
+            "drone_C": 1,
+            "battery_A": 1,
+            "battery_B": 4,
+            "battery_C": 3,
+            "relay_drone": 1,
+            "relay_component": 4
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 1,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 21378.680977275868,
+            "box_count": 39,
+            "transport_energy_kwh": 34.819831331590734,
+            "relay_service_s": 3006.0
+          },
+          "relay_mission_ids": [
+            "RM01",
+            "RM02",
+            "RM03",
+            "RM05",
+            "RM06"
+          ]
+        },
+        {
+          "component_mask": 640,
+          "zones": [
+            "S008",
+            "S011",
+            "S010",
+            "S013"
+          ],
+          "trip_ids": [
+            "pair-10-13-2-C",
+            "pair-12-15-1-C"
+          ],
+          "requirements_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 1,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 1,
+            "relay_drone": 1,
+            "relay_component": 1
+          },
+          "used_ids": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 1,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 2,
+            "relay_drone": 1,
+            "relay_component": 1
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 4393.501041922065,
+            "box_count": 14,
+            "transport_energy_kwh": 10.311274317978636,
+            "relay_service_s": 757.0
+          },
+          "relay_mission_ids": [
+            "RM04"
+          ]
+        }
+      ]
+    }
+  },
+  "alternatives": {
+    "2": [
+      {
+        "k": 2,
+        "objective": [
+          3,
+          23,
+          24417.259296450087,
+          4
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 0,
+          "drone_C": 1,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 0,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 0,
+          "drone_C": 2,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 2,
+          "relay_drone": 0,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 2,
+          "drone_C": 3,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 4,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 2,
+          "drone_C": 4,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 6,
+          "relay_drone": 2,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 537,
+            "zones": [
+              "S001",
+              "S004",
+              "S005",
+              "S010",
+              "S013"
+            ],
+            "trip_ids": [
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S004-1",
+              "single-S005-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 8728.640939350049,
+              "box_count": 33,
+              "transport_energy_kwh": 20.143310622840755,
+              "relay_service_s": 757.0
+            },
+            "relay_mission_ids": [
+              "RM04"
+            ]
+          },
+          {
+            "component_mask": 7654,
+            "zones": [
+              "S002",
+              "S003",
+              "S006",
+              "S007",
+              "S008",
+              "S011",
+              "S009",
+              "S012",
+              "S014",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B",
+              "pair-10-13-2-C",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S009-1",
+              "single-S012-1",
+              "single-S014-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 1,
+              "battery_B": 4,
+              "battery_C": 2,
+              "relay_drone": 3,
+              "relay_component": 3
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 1,
+              "battery_B": 4,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 4
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 1,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 23780.54965879702,
+              "box_count": 47,
+              "transport_energy_kwh": 41.06447921285115,
+              "relay_service_s": 3006.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM02",
+              "RM03",
+              "RM05",
+              "RM06"
+            ]
+          }
+        ]
+      },
+      {
+        "k": 2,
+        "objective": [
+          3,
+          23,
+          47666.77618307042,
+          1
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 0,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 0,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 0,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 0,
+          "relay_drone": 0,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 2,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 4,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 2,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 4,
+          "relay_drone": 1,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 8127,
+            "zones": [
+              "S001",
+              "S002",
+              "S003",
+              "S004",
+              "S005",
+              "S006",
+              "S008",
+              "S011",
+              "S009",
+              "S010",
+              "S013",
+              "S012",
+              "S014",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "pair-10-13-2-C",
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S004-1",
+              "single-S005-1",
+              "single-S009-1",
+              "single-S012-1",
+              "single-S014-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 3,
+              "battery_C": 4,
+              "relay_drone": 4,
+              "relay_component": 4
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 3,
+              "battery_C": 4,
+              "relay_drone": 1,
+              "relay_component": 5
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 2,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 28408.774556050987,
+              "box_count": 75,
+              "transport_energy_kwh": 56.2629243663718,
+              "relay_service_s": 3763.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM02",
+              "RM03",
+              "RM04",
+              "RM05",
+              "RM06"
+            ]
+          },
+          {
+            "component_mask": 64,
+            "zones": [
+              "S007"
+            ],
+            "trip_ids": [
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 1,
+              "drone_C": 0,
+              "battery_A": 1,
+              "battery_B": 1,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 1,
+              "drone_C": 0,
+              "battery_A": 1,
+              "battery_B": 1,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 4100.416042096082,
+              "box_count": 5,
+              "transport_energy_kwh": 4.944865469320105,
+              "relay_service_s": 0.0
+            },
+            "relay_mission_ids": []
+          }
+        ]
+      },
+      {
+        "k": 2,
+        "objective": [
+          4,
+          24,
+          129.0671321382615,
+          3
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 0,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 0,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 2,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 0,
+          "relay_drone": 0,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 2,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 4,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 4,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 4,
+          "relay_drone": 2,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 3853,
+            "zones": [
+              "S001",
+              "S003",
+              "S004",
+              "S009",
+              "S010",
+              "S013",
+              "S012",
+              "S014"
+            ],
+            "trip_ids": [
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S004-1",
+              "single-S009-1",
+              "single-S012-1",
+              "single-S014-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 1,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 2,
+              "battery_C": 2,
+              "relay_drone": 2,
+              "relay_component": 2
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 1,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 2,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 3
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 15541.567923103457,
+              "box_count": 44,
+              "transport_energy_kwh": 30.99743139130997,
+              "relay_service_s": 2301.0
+            },
+            "relay_mission_ids": [
+              "RM02",
+              "RM04",
+              "RM05",
+              "RM06"
+            ]
+          },
+          {
+            "component_mask": 4338,
+            "zones": [
+              "S002",
+              "S005",
+              "S006",
+              "S007",
+              "S008",
+              "S011",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B",
+              "pair-10-13-2-C",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S005-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 3,
+              "battery_C": 2,
+              "relay_drone": 2,
+              "relay_component": 2
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 1,
+              "battery_B": 3,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 2
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 16967.62267504361,
+              "box_count": 36,
+              "transport_energy_kwh": 30.21035844438193,
+              "relay_service_s": 1462.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM03"
+            ]
+          }
+        ]
+      },
+      {
+        "k": 2,
+        "objective": [
+          4,
+          24,
+          5274.907306354427,
+          4
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 0,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 0,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 2,
+          "battery_A": 0,
+          "battery_B": 2,
+          "battery_C": 0,
+          "relay_drone": 0,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 2,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 4,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 4,
+          "battery_A": 1,
+          "battery_B": 6,
+          "battery_C": 4,
+          "relay_drone": 2,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 1805,
+            "zones": [
+              "S001",
+              "S003",
+              "S004",
+              "S009",
+              "S010",
+              "S013",
+              "S012"
+            ],
+            "trip_ids": [
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S004-1",
+              "single-S009-1",
+              "single-S012-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 1,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 2,
+              "battery_C": 2,
+              "relay_drone": 2,
+              "relay_component": 2
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 1,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 2,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 2
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 14026.359973703098,
+              "box_count": 41,
+              "transport_energy_kwh": 29.001500491823357,
+              "relay_service_s": 1893.0
+            },
+            "relay_mission_ids": [
+              "RM02",
+              "RM04",
+              "RM06"
+            ]
+          },
+          {
+            "component_mask": 6386,
+            "zones": [
+              "S002",
+              "S005",
+              "S006",
+              "S007",
+              "S008",
+              "S011",
+              "S014",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B",
+              "pair-10-13-2-C",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S005-1",
+              "single-S014-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 3,
+              "battery_C": 2,
+              "relay_drone": 2,
+              "relay_component": 2
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 1,
+              "battery_B": 4,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 3
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 18482.83062444397,
+              "box_count": 39,
+              "transport_energy_kwh": 32.20628934386855,
+              "relay_service_s": 1870.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM03",
+              "RM05"
+            ]
+          }
+        ]
+      },
+      {
+        "k": 2,
+        "objective": [
+          4,
+          24,
+          6589.070409798347,
+          4
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 0,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 0,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 2,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 0,
+          "relay_drone": 0,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 2,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 4,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 4,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 4,
+          "relay_drone": 2,
+          "relay_component": 6
+        },
+        "groups": [
+          {
+            "component_mask": 2829,
+            "zones": [
+              "S001",
+              "S003",
+              "S004",
+              "S009",
+              "S010",
+              "S013",
+              "S014"
+            ],
+            "trip_ids": [
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S004-1",
+              "single-S009-1",
+              "single-S014-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 1,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 2,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 1,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 2,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 3
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 13813.569344153082,
+              "box_count": 41,
+              "transport_energy_kwh": 28.32053075125021,
+              "relay_service_s": 1653.0
+            },
+            "relay_mission_ids": [
+              "RM04",
+              "RM05",
+              "RM06"
+            ]
+          },
+          {
+            "component_mask": 5362,
+            "zones": [
+              "S002",
+              "S005",
+              "S006",
+              "S007",
+              "S008",
+              "S011",
+              "S012",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B",
+              "pair-10-13-2-C",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S005-1",
+              "single-S012-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 3,
+              "battery_C": 2,
+              "relay_drone": 3,
+              "relay_component": 3
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 1,
+              "battery_B": 3,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 3
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 1,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 18695.621253993984,
+              "box_count": 39,
+              "transport_energy_kwh": 32.88725908444169,
+              "relay_service_s": 2110.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM02",
+              "RM03"
+            ]
+          }
+        ]
+      }
+    ],
+    "3": [
+      {
+        "k": 3,
+        "objective": [
+          4,
+          24,
+          28086.747039437436,
+          5
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 0,
+          "drone_C": 1,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 1,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 0,
+          "drone_C": 2,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 4,
+          "relay_drone": 0,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 2,
+          "drone_C": 3,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 5,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 2,
+          "drone_C": 4,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 8,
+          "relay_drone": 2,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 25,
+            "zones": [
+              "S001",
+              "S004",
+              "S005"
+            ],
+            "trip_ids": [
+              "single-S001-1",
+              "single-S001-2",
+              "single-S004-1",
+              "single-S005-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 2,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 3,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 6737.008578949133,
+              "box_count": 27,
+              "transport_energy_kwh": 16.07668418612253,
+              "relay_service_s": 0.0
+            },
+            "relay_mission_ids": []
+          },
+          {
+            "component_mask": 7526,
+            "zones": [
+              "S002",
+              "S003",
+              "S006",
+              "S007",
+              "S009",
+              "S012",
+              "S014",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S009-1",
+              "single-S012-1",
+              "single-S014-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 4,
+              "battery_C": 2,
+              "relay_drone": 3,
+              "relay_component": 3
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 4,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 4
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 1,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 21378.680977275868,
+              "box_count": 39,
+              "transport_energy_kwh": 34.819831331590734,
+              "relay_service_s": 3006.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM02",
+              "RM03",
+              "RM05",
+              "RM06"
+            ]
+          },
+          {
+            "component_mask": 640,
+            "zones": [
+              "S008",
+              "S011",
+              "S010",
+              "S013"
+            ],
+            "trip_ids": [
+              "pair-10-13-2-C",
+              "pair-12-15-1-C"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 1,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 4393.501041922065,
+              "box_count": 14,
+              "transport_energy_kwh": 10.311274317978636,
+              "relay_service_s": 757.0
+            },
+            "relay_mission_ids": [
+              "RM04"
+            ]
+          }
+        ]
+      },
+      {
+        "k": 3,
+        "objective": [
+          4,
+          24,
+          30158.14205686814,
+          4
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 1,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 0,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 2,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 2,
+          "relay_drone": 0,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 3,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 4,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 4,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 6,
+          "relay_drone": 2,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 537,
+            "zones": [
+              "S001",
+              "S004",
+              "S005",
+              "S010",
+              "S013"
+            ],
+            "trip_ids": [
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S004-1",
+              "single-S005-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 8728.640939350049,
+              "box_count": 33,
+              "transport_energy_kwh": 20.143310622840755,
+              "relay_service_s": 757.0
+            },
+            "relay_mission_ids": [
+              "RM04"
+            ]
+          },
+          {
+            "component_mask": 7590,
+            "zones": [
+              "S002",
+              "S003",
+              "S006",
+              "S008",
+              "S011",
+              "S009",
+              "S012",
+              "S014",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "pair-10-13-2-C",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S009-1",
+              "single-S012-1",
+              "single-S014-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 3,
+              "battery_C": 2,
+              "relay_drone": 3,
+              "relay_component": 3
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 2,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 3,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 4
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 1,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 19680.13361670094,
+              "box_count": 42,
+              "transport_energy_kwh": 36.11961374353104,
+              "relay_service_s": 3006.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM02",
+              "RM03",
+              "RM05",
+              "RM06"
+            ]
+          },
+          {
+            "component_mask": 64,
+            "zones": [
+              "S007"
+            ],
+            "trip_ids": [
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 1,
+              "drone_C": 0,
+              "battery_A": 1,
+              "battery_B": 1,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 1,
+              "drone_C": 0,
+              "battery_A": 1,
+              "battery_B": 1,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 4100.416042096082,
+              "box_count": 5,
+              "transport_energy_kwh": 4.944865469320105,
+              "relay_service_s": 0.0
+            },
+            "relay_mission_ids": []
+          }
+        ]
+      },
+      {
+        "k": 3,
+        "objective": [
+          4,
+          24,
+          32415.36733085382,
+          4
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 0,
+          "drone_C": 1,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 1,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 0,
+          "drone_C": 2,
+          "battery_A": 0,
+          "battery_B": 0,
+          "battery_C": 3,
+          "relay_drone": 0,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 2,
+          "drone_C": 3,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 5,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 2,
+          "drone_C": 4,
+          "battery_A": 1,
+          "battery_B": 4,
+          "battery_C": 7,
+          "relay_drone": 2,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 537,
+            "zones": [
+              "S001",
+              "S004",
+              "S005",
+              "S010",
+              "S013"
+            ],
+            "trip_ids": [
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S004-1",
+              "single-S005-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 8728.640939350049,
+              "box_count": 33,
+              "transport_energy_kwh": 20.143310622840755,
+              "relay_service_s": 757.0
+            },
+            "relay_mission_ids": [
+              "RM04"
+            ]
+          },
+          {
+            "component_mask": 7526,
+            "zones": [
+              "S002",
+              "S003",
+              "S006",
+              "S007",
+              "S009",
+              "S012",
+              "S014",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S009-1",
+              "single-S012-1",
+              "single-S014-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 4,
+              "battery_C": 2,
+              "relay_drone": 3,
+              "relay_component": 3
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 4,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 4
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 1,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 21378.680977275868,
+              "box_count": 39,
+              "transport_energy_kwh": 34.819831331590734,
+              "relay_service_s": 3006.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM02",
+              "RM03",
+              "RM05",
+              "RM06"
+            ]
+          },
+          {
+            "component_mask": 128,
+            "zones": [
+              "S008",
+              "S011"
+            ],
+            "trip_ids": [
+              "pair-10-13-2-C"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 1,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 1,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 2401.86868152115,
+              "box_count": 8,
+              "transport_energy_kwh": 6.244647881260413,
+              "relay_service_s": 0.0
+            },
+            "relay_mission_ids": []
+          }
+        ]
+      },
+      {
+        "k": 3,
+        "objective": [
+          5,
+          25,
+          3790.8627422219033,
+          5
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 1,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 0,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 3,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 2,
+          "relay_drone": 1,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 3,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 4,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 5,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 6,
+          "relay_drone": 3,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 537,
+            "zones": [
+              "S001",
+              "S004",
+              "S005",
+              "S010",
+              "S013"
+            ],
+            "trip_ids": [
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S004-1",
+              "single-S005-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 8728.640939350049,
+              "box_count": 33,
+              "transport_energy_kwh": 20.143310622840755,
+              "relay_service_s": 757.0
+            },
+            "relay_mission_ids": [
+              "RM04"
+            ]
+          },
+          {
+            "component_mask": 4290,
+            "zones": [
+              "S002",
+              "S007",
+              "S008",
+              "S011",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B",
+              "pair-10-13-2-C",
+              "single-S002-1",
+              "single-S002-2",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 1,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 2,
+              "battery_C": 1,
+              "relay_drone": 2,
+              "relay_component": 2
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 1,
+              "drone_C": 2,
+              "battery_A": 1,
+              "battery_B": 2,
+              "battery_C": 1,
+              "relay_drone": 1,
+              "relay_component": 2
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 11850.902734911191,
+              "box_count": 24,
+              "transport_energy_kwh": 21.821980445043298,
+              "relay_service_s": 1462.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM03"
+            ]
+          },
+          {
+            "component_mask": 3364,
+            "zones": [
+              "S003",
+              "S006",
+              "S009",
+              "S012",
+              "S014"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S009-1",
+              "single-S012-1",
+              "single-S014-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 3,
+              "battery_C": 1,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 3,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 2
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 11929.646923885828,
+              "box_count": 23,
+              "transport_energy_kwh": 19.24249876780785,
+              "relay_service_s": 1544.0
+            },
+            "relay_mission_ids": [
+              "RM02",
+              "RM05",
+              "RM06"
+            ]
+          }
+        ]
+      },
+      {
+        "k": 3,
+        "objective": [
+          5,
+          25,
+          5660.7648725914005,
+          5
+        ],
+        "total_gaps_min": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 1,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 0,
+          "relay_drone": 2,
+          "relay_component": 0
+        },
+        "total_gaps_conservative": {
+          "drone_A": 0,
+          "drone_B": 1,
+          "drone_C": 3,
+          "battery_A": 0,
+          "battery_B": 1,
+          "battery_C": 2,
+          "relay_drone": 1,
+          "relay_component": 0
+        },
+        "total_requirements_min": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 3,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 4,
+          "relay_drone": 4,
+          "relay_component": 4
+        },
+        "total_used_ids": {
+          "drone_A": 1,
+          "drone_B": 3,
+          "drone_C": 5,
+          "battery_A": 1,
+          "battery_B": 5,
+          "battery_C": 6,
+          "relay_drone": 3,
+          "relay_component": 5
+        },
+        "groups": [
+          {
+            "component_mask": 537,
+            "zones": [
+              "S001",
+              "S004",
+              "S005",
+              "S010",
+              "S013"
+            ],
+            "trip_ids": [
+              "pair-12-15-1-C",
+              "single-S001-1",
+              "single-S001-2",
+              "single-S004-1",
+              "single-S005-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 2,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 3,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 8728.640939350049,
+              "box_count": 33,
+              "transport_energy_kwh": 20.143310622840755,
+              "relay_service_s": 757.0
+            },
+            "relay_mission_ids": [
+              "RM04"
+            ]
+          },
+          {
+            "component_mask": 194,
+            "zones": [
+              "S002",
+              "S007",
+              "S008",
+              "S011"
+            ],
+            "trip_ids": [
+              "alt-S007-0-B",
+              "alt-S007-16-B",
+              "alt-S007-7-B",
+              "pair-10-13-2-C",
+              "single-S002-1",
+              "single-S002-2"
+            ],
+            "requirements_min": {
+              "drone_A": 1,
+              "drone_B": 1,
+              "drone_C": 1,
+              "battery_A": 1,
+              "battery_B": 2,
+              "battery_C": 1,
+              "relay_drone": 2,
+              "relay_component": 2
+            },
+            "used_ids": {
+              "drone_A": 1,
+              "drone_B": 1,
+              "drone_C": 2,
+              "battery_A": 1,
+              "battery_B": 2,
+              "battery_C": 1,
+              "relay_drone": 1,
+              "relay_component": 2
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 10164.035316965153,
+              "box_count": 21,
+              "transport_energy_kwh": 19.568197022978442,
+              "relay_service_s": 1462.0
+            },
+            "relay_mission_ids": [
+              "RM01",
+              "RM03"
+            ]
+          },
+          {
+            "component_mask": 7460,
+            "zones": [
+              "S003",
+              "S006",
+              "S009",
+              "S012",
+              "S014",
+              "S015"
+            ],
+            "trip_ids": [
+              "alt-S006-29-C",
+              "alt-S006-7-B",
+              "alt-S006-8-B",
+              "single-S003-1",
+              "single-S003-2",
+              "single-S009-1",
+              "single-S012-1",
+              "single-S014-1",
+              "single-S015-1"
+            ],
+            "requirements_min": {
+              "drone_A": 0,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 3,
+              "battery_C": 1,
+              "relay_drone": 1,
+              "relay_component": 1
+            },
+            "used_ids": {
+              "drone_A": 0,
+              "drone_B": 2,
+              "drone_C": 1,
+              "battery_A": 0,
+              "battery_B": 3,
+              "battery_C": 2,
+              "relay_drone": 1,
+              "relay_component": 2
+            },
+            "gaps_min": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "gaps_conservative": {
+              "drone_A": 0,
+              "drone_B": 0,
+              "drone_C": 0,
+              "battery_A": 0,
+              "battery_B": 0,
+              "battery_C": 0,
+              "relay_drone": 0,
+              "relay_component": 0
+            },
+            "workload": {
+              "duration_s": 13616.514341831866,
+              "box_count": 26,
+              "transport_energy_kwh": 21.4962821898727,
+              "relay_service_s": 1544.0
+            },
+            "relay_mission_ids": [
+              "RM02",
+              "RM05",
+              "RM06"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "balanced": {
+    "2": {
+      "k": 2,
+      "objective": [
+        3,
+        23,
+        24417.259296450087,
+        4
+      ],
+      "total_gaps_min": {
+        "drone_A": 0,
+        "drone_B": 0,
+        "drone_C": 1,
+        "battery_A": 0,
+        "battery_B": 0,
+        "battery_C": 0,
+        "relay_drone": 2,
+        "relay_component": 0
+      },
+      "total_gaps_conservative": {
+        "drone_A": 0,
+        "drone_B": 0,
+        "drone_C": 2,
+        "battery_A": 0,
+        "battery_B": 0,
+        "battery_C": 2,
+        "relay_drone": 0,
+        "relay_component": 0
+      },
+      "total_requirements_min": {
+        "drone_A": 1,
+        "drone_B": 2,
+        "drone_C": 3,
+        "battery_A": 1,
+        "battery_B": 4,
+        "battery_C": 4,
+        "relay_drone": 4,
+        "relay_component": 4
+      },
+      "total_used_ids": {
+        "drone_A": 1,
+        "drone_B": 2,
+        "drone_C": 4,
+        "battery_A": 1,
+        "battery_B": 4,
+        "battery_C": 6,
+        "relay_drone": 2,
+        "relay_component": 5
+      },
+      "groups": [
+        {
+          "component_mask": 537,
+          "zones": [
+            "S001",
+            "S004",
+            "S005",
+            "S010",
+            "S013"
+          ],
+          "trip_ids": [
+            "pair-12-15-1-C",
+            "single-S001-1",
+            "single-S001-2",
+            "single-S004-1",
+            "single-S005-1"
+          ],
+          "requirements_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 1,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 2,
+            "relay_drone": 1,
+            "relay_component": 1
+          },
+          "used_ids": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 2,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 3,
+            "relay_drone": 1,
+            "relay_component": 1
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 8728.640939350049,
+            "box_count": 33,
+            "transport_energy_kwh": 20.143310622840755,
+            "relay_service_s": 757.0
+          },
+          "relay_mission_ids": [
+            "RM04"
+          ]
+        },
+        {
+          "component_mask": 7654,
+          "zones": [
+            "S002",
+            "S003",
+            "S006",
+            "S007",
+            "S008",
+            "S011",
+            "S009",
+            "S012",
+            "S014",
+            "S015"
+          ],
+          "trip_ids": [
+            "alt-S006-29-C",
+            "alt-S006-7-B",
+            "alt-S006-8-B",
+            "alt-S007-0-B",
+            "alt-S007-16-B",
+            "alt-S007-7-B",
+            "pair-10-13-2-C",
+            "single-S002-1",
+            "single-S002-2",
+            "single-S003-1",
+            "single-S003-2",
+            "single-S009-1",
+            "single-S012-1",
+            "single-S014-1",
+            "single-S015-1"
+          ],
+          "requirements_min": {
+            "drone_A": 1,
+            "drone_B": 2,
+            "drone_C": 2,
+            "battery_A": 1,
+            "battery_B": 4,
+            "battery_C": 2,
+            "relay_drone": 3,
+            "relay_component": 3
+          },
+          "used_ids": {
+            "drone_A": 1,
+            "drone_B": 2,
+            "drone_C": 2,
+            "battery_A": 1,
+            "battery_B": 4,
+            "battery_C": 3,
+            "relay_drone": 1,
+            "relay_component": 4
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 1,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 23780.54965879702,
+            "box_count": 47,
+            "transport_energy_kwh": 41.06447921285115,
+            "relay_service_s": 3006.0
+          },
+          "relay_mission_ids": [
+            "RM01",
+            "RM02",
+            "RM03",
+            "RM05",
+            "RM06"
+          ]
+        }
+      ]
+    },
+    "3": {
+      "k": 3,
+      "objective": [
+        4,
+        24,
+        28086.747039437436,
+        5
+      ],
+      "total_gaps_min": {
+        "drone_A": 0,
+        "drone_B": 0,
+        "drone_C": 1,
+        "battery_A": 0,
+        "battery_B": 0,
+        "battery_C": 1,
+        "relay_drone": 2,
+        "relay_component": 0
+      },
+      "total_gaps_conservative": {
+        "drone_A": 0,
+        "drone_B": 0,
+        "drone_C": 2,
+        "battery_A": 0,
+        "battery_B": 0,
+        "battery_C": 4,
+        "relay_drone": 0,
+        "relay_component": 0
+      },
+      "total_requirements_min": {
+        "drone_A": 1,
+        "drone_B": 2,
+        "drone_C": 3,
+        "battery_A": 1,
+        "battery_B": 4,
+        "battery_C": 5,
+        "relay_drone": 4,
+        "relay_component": 4
+      },
+      "total_used_ids": {
+        "drone_A": 1,
+        "drone_B": 2,
+        "drone_C": 4,
+        "battery_A": 1,
+        "battery_B": 4,
+        "battery_C": 8,
+        "relay_drone": 2,
+        "relay_component": 5
+      },
+      "groups": [
+        {
+          "component_mask": 25,
+          "zones": [
+            "S001",
+            "S004",
+            "S005"
+          ],
+          "trip_ids": [
+            "single-S001-1",
+            "single-S001-2",
+            "single-S004-1",
+            "single-S005-1"
+          ],
+          "requirements_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 1,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 2,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "used_ids": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 2,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 3,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 6737.008578949133,
+            "box_count": 27,
+            "transport_energy_kwh": 16.07668418612253,
+            "relay_service_s": 0.0
+          },
+          "relay_mission_ids": []
+        },
+        {
+          "component_mask": 7526,
+          "zones": [
+            "S002",
+            "S003",
+            "S006",
+            "S007",
+            "S009",
+            "S012",
+            "S014",
+            "S015"
+          ],
+          "trip_ids": [
+            "alt-S006-29-C",
+            "alt-S006-7-B",
+            "alt-S006-8-B",
+            "alt-S007-0-B",
+            "alt-S007-16-B",
+            "alt-S007-7-B",
+            "single-S002-1",
+            "single-S002-2",
+            "single-S003-1",
+            "single-S003-2",
+            "single-S009-1",
+            "single-S012-1",
+            "single-S014-1",
+            "single-S015-1"
+          ],
+          "requirements_min": {
+            "drone_A": 1,
+            "drone_B": 2,
+            "drone_C": 1,
+            "battery_A": 1,
+            "battery_B": 4,
+            "battery_C": 2,
+            "relay_drone": 3,
+            "relay_component": 3
+          },
+          "used_ids": {
+            "drone_A": 1,
+            "drone_B": 2,
+            "drone_C": 1,
+            "battery_A": 1,
+            "battery_B": 4,
+            "battery_C": 3,
+            "relay_drone": 1,
+            "relay_component": 4
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 1,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 21378.680977275868,
+            "box_count": 39,
+            "transport_energy_kwh": 34.819831331590734,
+            "relay_service_s": 3006.0
+          },
+          "relay_mission_ids": [
+            "RM01",
+            "RM02",
+            "RM03",
+            "RM05",
+            "RM06"
+          ]
+        },
+        {
+          "component_mask": 640,
+          "zones": [
+            "S008",
+            "S011",
+            "S010",
+            "S013"
+          ],
+          "trip_ids": [
+            "pair-10-13-2-C",
+            "pair-12-15-1-C"
+          ],
+          "requirements_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 1,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 1,
+            "relay_drone": 1,
+            "relay_component": 1
+          },
+          "used_ids": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 1,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 2,
+            "relay_drone": 1,
+            "relay_component": 1
+          },
+          "gaps_min": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "gaps_conservative": {
+            "drone_A": 0,
+            "drone_B": 0,
+            "drone_C": 0,
+            "battery_A": 0,
+            "battery_B": 0,
+            "battery_C": 0,
+            "relay_drone": 0,
+            "relay_component": 0
+          },
+          "workload": {
+            "duration_s": 4393.501041922065,
+            "box_count": 14,
+            "transport_energy_kwh": 10.311274317978636,
+            "relay_service_s": 757.0
+          },
+          "relay_mission_ids": [
+            "RM04"
+          ]
+        }
+      ]
+    }
+  }
+}

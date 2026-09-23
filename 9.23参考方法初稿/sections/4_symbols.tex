@@ -1,0 +1,24 @@
+\section{符号说明}
+\begin{table}[htbp]
+\centering
+\caption{主要符号说明}
+\begin{tabular}{c p{8.5cm} c}
+\toprule
+符号 & 含义 & 单位\\
+\midrule
+$i\in\mathcal I$ & 服务区索引，$|\mathcal I|=15$ & --\\
+$b\in\mathcal B$ & 不可拆分货箱索引，$|\mathcal B|=80$ & --\\
+$k\in\mathcal K$ & 无人机机型，$\mathcal K=\{A,B,C\}$ & --\\
+$r\in\mathcal R$ & 可分配资源类型（运输机、电池、中继机或中继组件） & --\\
+$P_{ik}$ & 机型 $k$ 在服务区 $i$ 的安全载荷 & kg\\
+$x_{bj}$ & 货箱 $b$ 是否分配至运输批次 $j$ & 0--1\\
+$s_j,e_j$ & 架次 $j$ 的开始与结束时刻 & s\\
+$E_j$ & 架次 $j$ 的运输能耗 & kWh\\
+$g_{ih}$ & 服务区组件 $i$ 是否分配至任务组 $h$ & 0--1\\
+$N_{hr}^{\min}$ & 任务组 $h$ 对资源 $r$ 的峰值并发需求 & 个\\
+$S_r$ & 资源 $r$ 的现有库存 & 个\\
+$\Delta_r$ & 资源 $r$ 的库存缺口 & 个\\
+\bottomrule
+\end{tabular}
+\end{table}
+符号随各问题的局部下标含义在首次使用处补充说明。

@@ -1,0 +1,420 @@
+{
+  "problem1": {
+    "box_coverage_exact": true,
+    "trip_count": 18,
+    "total_energy_kwh": 57.93743,
+    "all_trip_energy_feasible": true
+  },
+  "problem2": {
+    "box_coverage_exact": true,
+    "capacity_violations": [],
+    "deadline_violations": [],
+    "resource_conflicts": [],
+    "all_trip_energy_feasible": true,
+    "stored_timing_matches_recalculation": true,
+    "recalculated_total_energy_kwh": 61.207789835691905,
+    "recalculated_makespan_s": 9980,
+    "trips": [
+      {
+        "trip_id": "alt-S007-0-B",
+        "energy": 1.7000003316855286,
+        "duration": 1427.5569392677235,
+        "computed_end": 1428,
+        "stored_end": 1428,
+        "energy_feasible": true,
+        "deliveries": {
+          "49": 961.4184696338618
+        }
+      },
+      {
+        "trip_id": "pair-12-15-1-C",
+        "energy": 4.066626436718224,
+        "duration": 1991.6323604009156,
+        "computed_end": 1992,
+        "stored_end": 1992,
+        "energy_feasible": true,
+        "deliveries": {
+          "62": 1104.1222200911848,
+          "63": 1140.1222200911848,
+          "64": 1176.1222200911848,
+          "71": 1484.38567356093,
+          "72": 1520.38567356093,
+          "73": 1556.38567356093
+        }
+      },
+      {
+        "trip_id": "single-S002-1",
+        "energy": 2.6854258400134188,
+        "duration": 1728.6807867862653,
+        "computed_end": 1729,
+        "stored_end": 1729,
+        "energy_feasible": true,
+        "deliveries": {
+          "15": 1116.2803933931327,
+          "17": 1146.2803933931327,
+          "20": 1176.2803933931327
+        }
+      },
+      {
+        "trip_id": "single-S002-2",
+        "energy": 5.693257832384507,
+        "duration": 1933.0698065616562,
+        "computed_end": 1934,
+        "stored_end": 1934,
+        "energy_feasible": true,
+        "deliveries": {
+          "16": 1222.944903280828,
+          "18": 1258.944903280828,
+          "19": 1294.944903280828,
+          "21": 1330.944903280828,
+          "22": 1366.944903280828
+        }
+      },
+      {
+        "trip_id": "single-S012-1",
+        "energy": 2.6769006400597597,
+        "duration": 1727.9985789503748,
+        "computed_end": 1728,
+        "stored_end": 1728,
+        "energy_feasible": true,
+        "deliveries": {
+          "68": 1113.9292894751875,
+          "69": 1143.9292894751875,
+          "70": 1173.9292894751875
+        }
+      },
+      {
+        "trip_id": "single-S014-1",
+        "energy": 1.9959308994866136,
+        "duration": 1515.2079494003592,
+        "computed_end": 3244,
+        "stored_end": 3244,
+        "energy_feasible": true,
+        "deliveries": {
+          "74": 2733.160641366846,
+          "75": 2763.160641366846,
+          "76": 2793.160641366846
+        }
+      },
+      {
+        "trip_id": "alt-S007-16-B",
+        "energy": 1.7809978449383426,
+        "duration": 1336.4295514141788,
+        "computed_end": 3066,
+        "stored_end": 3066,
+        "energy_feasible": true,
+        "deliveries": {
+          "50": 2644.854775707089,
+          "51": 2674.854775707089
+        }
+      },
+      {
+        "trip_id": "alt-S006-29-C",
+        "energy": 2.1750880857820025,
+        "duration": 1270.5271885908828,
+        "computed_end": 3205,
+        "stored_end": 3205,
+        "energy_feasible": true,
+        "deliveries": {
+          "43": 2826.9085942954416,
+          "44": 2862.9085942954416,
+          "45": 2898.9085942954416
+        }
+      },
+      {
+        "trip_id": "single-S001-1",
+        "energy": 2.904769016722333,
+        "duration": 1514.1049861112158,
+        "computed_end": 3507,
+        "stored_end": 3507,
+        "energy_feasible": true,
+        "deliveries": {
+          "0": 3001.237493055608,
+          "1": 3037.237493055608,
+          "2": 3073.237493055608,
+          "3": 3109.237493055608,
+          "4": 3145.237493055608,
+          "5": 3181.237493055608,
+          "6": 3217.237493055608
+        }
+      },
+      {
+        "trip_id": "single-S003-1",
+        "energy": 2.648145619900112,
+        "duration": 1752.7287387938463,
+        "computed_end": 5308,
+        "stored_end": 5308,
+        "energy_feasible": true,
+        "deliveries": {
+          "23": 4679.337702730257,
+          "27": 4709.337702730257,
+          "29": 4739.337702730257
+        }
+      },
+      {
+        "trip_id": "single-S015-1",
+        "energy": 2.253783422064854,
+        "duration": 1686.8674179460386,
+        "computed_end": 5247,
+        "stored_end": 5247,
+        "energy_feasible": true,
+        "deliveries": {
+          "77": 4646.873708973019,
+          "78": 4676.873708973019,
+          "79": 4706.873708973019
+        }
+      },
+      {
+        "trip_id": "single-S004-1",
+        "energy": 6.049031282146059,
+        "duration": 1999.2935657002631,
+        "computed_end": 5927,
+        "stored_end": 5927,
+        "energy_feasible": true,
+        "deliveries": {
+          "31": 5179.616782850131,
+          "32": 5215.616782850131,
+          "33": 5251.616782850131,
+          "34": 5287.616782850131,
+          "35": 5323.616782850131,
+          "36": 5359.616782850131
+        }
+      },
+      {
+        "trip_id": "pair-10-13-2-C",
+        "energy": 6.244647881260413,
+        "duration": 2401.86868152115,
+        "computed_end": 6712,
+        "stored_end": 6712,
+        "energy_feasible": true,
+        "deliveries": {
+          "65": 5287.569855596084,
+          "66": 5323.569855596084,
+          "67": 5359.569855596084,
+          "54": 5955.637882610335,
+          "55": 5991.637882610335,
+          "56": 6027.637882610335,
+          "57": 6063.637882610335,
+          "58": 6099.637882610335
+        }
+      },
+      {
+        "trip_id": "alt-S007-7-B",
+        "energy": 1.463867292696233,
+        "duration": 1336.4295514141788,
+        "computed_end": 6584,
+        "stored_end": 6584,
+        "energy_feasible": true,
+        "deliveries": {
+          "52": 6162.854775707089,
+          "53": 6192.854775707089
+        }
+      },
+      {
+        "trip_id": "single-S009-1",
+        "energy": 2.075181573993813,
+        "duration": 1492.6346855080865,
+        "computed_end": 6801,
+        "stored_end": 6801,
+        "energy_feasible": true,
+        "deliveries": {
+          "59": 6305.907342754043,
+          "60": 6335.907342754043,
+          "61": 6365.907342754043
+        }
+      },
+      {
+        "trip_id": "single-S003-2",
+        "energy": 5.597851273269267,
+        "duration": 1967.8620721271795,
+        "computed_end": 7895,
+        "stored_end": 7895,
+        "energy_feasible": true,
+        "deliveries": {
+          "24": 7161.39103606359,
+          "25": 7197.39103606359,
+          "26": 7233.39103606359,
+          "28": 7269.39103606359,
+          "30": 7305.39103606359
+        }
+      },
+      {
+        "trip_id": "single-S005-1",
+        "energy": 4.13988923824035,
+        "duration": 1643.505041026438,
+        "computed_end": 8356,
+        "stored_end": 8356,
+        "energy_feasible": true,
+        "deliveries": {
+          "37": 7788.387520513219,
+          "38": 7824.387520513219,
+          "39": 7860.387520513219,
+          "40": 7896.387520513219,
+          "41": 7932.387520513219,
+          "42": 7968.387520513219
+        }
+      },
+      {
+        "trip_id": "alt-S006-7-B",
+        "energy": 1.0367003376581405,
+        "duration": 1071.3438552575494,
+        "computed_end": 7963,
+        "stored_end": 7963,
+        "energy_feasible": true,
+        "deliveries": {
+          "46": 7675.435260962108
+        }
+      },
+      {
+        "trip_id": "alt-S006-8-B",
+        "energy": 1.0367003376581405,
+        "duration": 1131.3438552575494,
+        "computed_end": 8255,
+        "stored_end": 8255,
+        "energy_feasible": true,
+        "deliveries": {
+          "47": 7937.435260962108,
+          "48": 7967.435260962108
+        }
+      },
+      {
+        "trip_id": "single-S001-2",
+        "energy": 2.98299464901379,
+        "duration": 1580.1049861112158,
+        "computed_end": 9980,
+        "stored_end": 9980,
+        "energy_feasible": true,
+        "deliveries": {
+          "7": 9438.237493055607,
+          "8": 9474.237493055607,
+          "9": 9510.237493055607,
+          "10": 9546.237493055607,
+          "11": 9582.237493055607,
+          "12": 9618.237493055607,
+          "13": 9654.237493055607,
+          "14": 9690.237493055607
+        }
+      }
+    ]
+  },
+  "problem3": {
+    "transport_option_count_matches": true,
+    "relay_energy_feasible": true,
+    "relay_and_component_conflicts": [],
+    "conservative_relay_airframe_conflicts": [
+      {
+        "kind": "relay",
+        "resource": "R1",
+        "left": [
+          296,
+          1912,
+          "RM01"
+        ],
+        "right": [
+          309,
+          1897,
+          "RM02"
+        ]
+      },
+      {
+        "kind": "relay",
+        "resource": "R1",
+        "left": [
+          296,
+          1912,
+          "RM01"
+        ],
+        "right": [
+          364,
+          2104,
+          "RM03"
+        ]
+      },
+      {
+        "kind": "relay",
+        "resource": "R1",
+        "left": [
+          296,
+          1912,
+          "RM01"
+        ],
+        "right": [
+          495,
+          2076,
+          "RM04"
+        ]
+      },
+      {
+        "kind": "relay",
+        "resource": "R1",
+        "left": [
+          309,
+          1897,
+          "RM02"
+        ],
+        "right": [
+          364,
+          2104,
+          "RM03"
+        ]
+      },
+      {
+        "kind": "relay",
+        "resource": "R1",
+        "left": [
+          309,
+          1897,
+          "RM02"
+        ],
+        "right": [
+          495,
+          2076,
+          "RM04"
+        ]
+      },
+      {
+        "kind": "relay",
+        "resource": "R1",
+        "left": [
+          364,
+          2104,
+          "RM03"
+        ],
+        "right": [
+          495,
+          2076,
+          "RM04"
+        ]
+      },
+      {
+        "kind": "relay",
+        "resource": "R1",
+        "left": [
+          364,
+          2104,
+          "RM03"
+        ],
+        "right": [
+          2093,
+          3351,
+          "RM05"
+        ]
+      }
+    ],
+    "relay_mission_count": 6,
+    "relay_energy_kwh": 1.7974367211658282
+  },
+  "problem4": {
+    "2": {
+      "all_zones_once": true,
+      "transport_components_inseparable": true,
+      "total_gap": 3
+    },
+    "3": {
+      "all_zones_once": true,
+      "transport_components_inseparable": true,
+      "total_gap": 4
+    }
+  },
+  "all_hard_checks_pass": true
+}

@@ -1,0 +1,18 @@
+\section{问题二：多区运输与资源排程}
+\subsection{时序决策模型}
+令 $z_{jr}=1$ 表示运输任务 $j$ 使用资源 $r$，$s_j$ 为起飞时刻，$e_j=s_j+d_j$ 为返航时刻。货箱 $b$ 在任务 $j$ 中的送达偏移为 $\delta_{bj}$，则送达时刻 $t_b=s_j+\delta_{bj}$。每箱唯一服务、货箱硬时限及架次与机型适配关系为
+\begin{align}
+&\sum_{j:b\in j}1=1,\qquad t_b\leq D_b &&(b\in\mathcal B_{\rm hard}),\\
+&\sum_{r\in\mathcal R(j)}z_{jr}=1 &&(\forall j),\\
+&[s_j,e_j)\cap[s_\ell,e_\ell)=\emptyset &&\text{若任务 }j,\ell\text{ 使用同一架无人机},\\
+&[s_j,c_j)\cap[s_\ell,c_\ell)=\emptyset &&\text{若任务 }j,\ell\text{ 使用同一电池}.
+\end{align}
+其中 $D_b$ 是硬时限，$c_j$ 是电池重新可用时刻。对多区路径，送达偏移随访问次序计算，且同一架次货箱共享路线。参考排程报告为 20 个运输架次、完工时刻 9980\,s、运输能耗 61.208\,kWh。
+
+\subsection{排程结构与资源占用}
+图~\ref{fig:q2gantt} 按实体运输无人机展示参考架次占用区间。图~\ref{fig:q2energy} 按机型汇总能耗，图~\ref{fig:q2ecdf} 给出逐箱交付时刻的经验累计分布，图~\ref{fig:q2mix} 对比机型架次和能耗。参考解中有 2 个架次访问两个服务区，其余为单区任务。图示用于呈现参考排程结构，不代表本稿重新计算或独立验证。
+\begin{figure}[htbp]\centering\includegraphics[width=0.95\linewidth]{fig_q2_gantt.png}\caption{运输无人机任务时序}\label{fig:q2gantt}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.72\linewidth]{fig_q2_type_energy.png}\caption{问题二机型能耗}\label{fig:q2energy}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.84\linewidth]{fig_q2_delivery_ecdf.png}\caption{逐箱交付累计曲线}\label{fig:q2ecdf}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.78\linewidth]{fig_q2_aircraft_mix.png}\caption{问题二机型结构}\label{fig:q2mix}\end{figure}
+参考结果随附的 verification JSON 报告了货箱覆盖、载荷、硬时限、设备与电池区间和能耗检查状态；这里仅记录其报告值，不将该文件视为本轮独立审计。实际应用中还应结合天气、临时禁飞区和充电功率波动滚动更新排程。

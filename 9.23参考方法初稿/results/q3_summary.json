@@ -1,0 +1,26 @@
+{
+  "direct_continuous_trips": 7,
+  "direct_incomplete_trips": 24,
+  "relay_continuous_trips": 6,
+  "communication_disruptions": 18,
+  "relay_sorties": 2,
+  "relay_candidate": {
+    "lon": 109.2379876,
+    "lat": 23.02733225,
+    "ground": 160.882568359375,
+    "alt": 460.882568359375,
+    "agl": 300.0
+  },
+  "dem_sample_spacing_m": 30,
+  "trajectory_spacing_m": 500,
+  "relay_aircraft_inventory": 2,
+  "relay_energy_inventory": {
+    "R": 6
+  },
+  "limitations": [
+    "relay position is a static candidate selected over sampled trajectories",
+    "relay sortie/component continuity requires independent audit",
+    "terrain model uses raster elevations without curvature/refraction"
+  ],
+  "communication_all_continuous": false
+}

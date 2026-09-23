@@ -1,0 +1,6 @@
+﻿reserve_pct,feasible_batches,mean_payload_A_kg,mean_payload_B_kg,mean_payload_C_kg
+15,31,25.0,30.0,76.593
+20,31,25.0,29.817,74.507
+25,29,24.8,29.035,71.521
+30,28,23.133,27.68,67.195
+35,22,18.97,25.664,60.257

@@ -1,0 +1,29 @@
+\section{问题一：安全载荷与单区组批}
+\subsection{安全载荷约束}
+对服务区 $i$ 与机型 $k$，记往返飞行能量为 $E_{ik}(m)$，电池可用能量为 $B_k$，最低返航储备比例为 $\rho$。安全载荷 $P_{ik}$ 由下式定义：
+\begin{equation}
+P_{ik}=\max\{m: E_{ik}(m)\leq (1-\rho)B_k,\;m\leq \bar P_k\},\qquad
+0\leq P_{ik}\leq \bar P_k.
+\label{eq:q1payload}
+\end{equation}
+其中 $\bar P_k$ 为机型额定载荷上限。参考结果中各区安全载荷主要受额定上限约束，少数远距离/地形条件下的 C 型上限低于 80\,kg；S008 的 B、C 型安全载荷分别为 29.501\,kg 和 59.945\,kg。
+
+\subsection{不可拆货箱组批}
+令 $x_{bj}=1$ 表示货箱 $b$ 分配给架次 $j$，$y_{jk}=1$ 表示架次 $j$ 选用机型 $k$。对每箱唯一分配、区内批次一致服务区、质量/容积和机型选择约束写为
+\begin{align}
+&\sum_j x_{bj}=1 &&(\forall b),\\
+&\sum_{b\in\mathcal B_i}m_bx_{bj}\leq \sum_k P_{ik}y_{jk} &&(\forall i,j),\\
+&\sum_{b\in\mathcal B_i}v_bx_{bj}\leq \sum_k V_ky_{jk} &&(\forall i,j),\\
+&\sum_k y_{jk}\leq 1 &&(\forall j),\qquad x_{bj},y_{jk}\in\{0,1\}.
+\end{align}
+在可行分配中以架次规模及运输能耗作为参考解的比较指标。本文不在本稿重新运行该组批算法，以下数值均转录自归档参考结果。
+
+\subsection{组批结果}
+15 个服务区共形成 18 个单区往返架次，其中 B 型和 C 型各 9 架次；累计运输能耗为 57.937\,kWh。图~\ref{fig:q1payload} 汇总机型—服务区安全载荷，图~\ref{fig:q1type} 与图~\ref{fig:q1energy} 分别给出机型架次构成和服务区能耗。可见单一机型并不能覆盖所有载荷与航程组合，安全载荷应随服务区分别计算。
+\begin{figure}[htbp]\centering\includegraphics[width=0.82\linewidth]{fig_q1_payload_heatmap.png}\caption{各区机型安全载荷}\label{fig:q1payload}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.62\linewidth]{fig_q1_type_count.png}\caption{问题一机型架次}\label{fig:q1type}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.92\linewidth]{fig_q1_area_energy.png}\caption{问题一分区能耗}\label{fig:q1energy}\end{figure}
+
+\subsection{返航储备敏感性}
+改变返航储备比例 $\rho$，比较 15 区平均安全载荷。图~\ref{fig:q1sens} 显示储备比例由 10\% 增至 30\% 时，C 型平均安全载荷由约 79.08\,kg 降至 69.59\,kg，B 型由 30.00\,kg 降至 28.68\,kg，A 型平均值由 25.00\,kg 降至 24.40\,kg。C 型变化幅度较大，说明重载机型的可用载荷对返航储备设定更敏感。
+\begin{figure}[htbp]\centering\includegraphics[width=0.88\linewidth]{fig_q1_reserve_sensitivity.png}\caption{返航储备敏感性}\label{fig:q1sens}\end{figure}

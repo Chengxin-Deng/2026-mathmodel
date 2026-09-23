@@ -1,0 +1,430 @@
+{
+  "candidate_option_count": 64,
+  "status": "FEASIBLE_SHARED_BB_PARALLEL_RELAY",
+  "relay_support_relation_count": 6,
+  "relay_mission_count": 6,
+  "relay_energy_kwh": 1.7974367211658282,
+  "conservative_single_service_status": "INFEASIBLE_WITH_FIXED_TRANSPORT_SCHEDULE",
+  "options": [
+    {
+      "option_id": "alt-S007-0-B-direct",
+      "trip_id": "alt-S007-0-B",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 0,
+      "end": 1428,
+      "service_start": 0,
+      "service_end": 1428,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "single-S002-1-relay-0",
+      "trip_id": "single-S002-1",
+      "mode": "relay",
+      "position": [
+        23.03014566,
+        109.24054677000001,
+        211.72798919677734
+      ],
+      "energy": 0.3287188976940187,
+      "start": 296,
+      "end": 1612,
+      "service_start": 721,
+      "service_end": 1390,
+      "transit_energy": 0.12454464374265299,
+      "relay": "R1",
+      "component": "R-BAT-2"
+    },
+    {
+      "option_id": "single-S012-1-relay-0",
+      "trip_id": "single-S012-1",
+      "mode": "relay",
+      "position": [
+        23.024593574999997,
+        109.2491511,
+        219.12010955810547
+      ],
+      "energy": 0.32078895829713694,
+      "start": 309,
+      "end": 1597,
+      "service_start": 730,
+      "service_end": 1378,
+      "transit_energy": 0.12334237238344611,
+      "relay": "R1",
+      "component": "R-BAT-1"
+    },
+    {
+      "option_id": "single-S002-2-relay-0",
+      "trip_id": "single-S002-2",
+      "mode": "relay",
+      "position": [
+        23.03014566,
+        109.24054677000001,
+        211.72798919677734
+      ],
+      "energy": 0.36677416460414775,
+      "start": 364,
+      "end": 1804,
+      "service_start": 789,
+      "service_end": 1582,
+      "transit_energy": 0.12454464374265299,
+      "relay": "R1",
+      "component": "R-BAT-3"
+    },
+    {
+      "option_id": "pair-12-15-1-C-relay-0",
+      "trip_id": "pair-12-15-1-C",
+      "mode": "relay",
+      "position": [
+        23.012321489999998,
+        109.246659485,
+        208.5081787109375
+      ],
+      "energy": 0.31622245577024594,
+      "start": 495,
+      "end": 1776,
+      "service_start": 859,
+      "service_end": 1616,
+      "transit_energy": 0.08522374516084724,
+      "relay": "R1",
+      "component": "R-BAT-5"
+    },
+    {
+      "option_id": "alt-S007-16-B-direct",
+      "trip_id": "alt-S007-16-B",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 1729,
+      "end": 3066,
+      "service_start": 1729,
+      "service_end": 3066,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "alt-S006-29-C-direct",
+      "trip_id": "alt-S006-29-C",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 1934,
+      "end": 3205,
+      "service_start": 1934,
+      "service_end": 3205,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "single-S001-1-direct",
+      "trip_id": "single-S001-1",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 1992,
+      "end": 3507,
+      "service_start": 1992,
+      "service_end": 3507,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "single-S014-1-relay-0",
+      "trip_id": "single-S014-1",
+      "mode": "relay",
+      "position": [
+        23.00735457,
+        109.249312415,
+        214.62659454345703
+      ],
+      "energy": 0.21831108126466778,
+      "start": 2093,
+      "end": 3051,
+      "service_start": 2469,
+      "service_end": 2877,
+      "transit_energy": 0.09410594808045442,
+      "relay": "R1",
+      "component": "R-BAT-4"
+    },
+    {
+      "option_id": "single-S003-1-direct",
+      "trip_id": "single-S003-1",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 3555,
+      "end": 5308,
+      "service_start": 3555,
+      "service_end": 5308,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "single-S015-1-direct",
+      "trip_id": "single-S015-1",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 3560,
+      "end": 5247,
+      "service_start": 3560,
+      "service_end": 5247,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "single-S004-1-direct",
+      "trip_id": "single-S004-1",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 3927,
+      "end": 5927,
+      "service_start": 3927,
+      "service_end": 5927,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "pair-10-13-2-C-direct",
+      "trip_id": "pair-10-13-2-C",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 4310,
+      "end": 6712,
+      "service_start": 4310,
+      "service_end": 6712,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "alt-S007-7-B-direct",
+      "trip_id": "alt-S007-7-B",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 5247,
+      "end": 6584,
+      "service_start": 5247,
+      "service_end": 6584,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "single-S009-1-relay-0",
+      "trip_id": "single-S009-1",
+      "mode": "relay",
+      "position": [
+        23.02488579,
+        109.23900344500001,
+        225.4494857788086
+      ],
+      "energy": 0.2466211635356112,
+      "start": 5621,
+      "end": 6668,
+      "service_start": 6001,
+      "service_end": 6489,
+      "transit_energy": 0.0977935619219828,
+      "relay": "R1",
+      "component": "R-BAT-1"
+    },
+    {
+      "option_id": "single-S003-2-direct",
+      "trip_id": "single-S003-2",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 5927,
+      "end": 7895,
+      "service_start": 5927,
+      "service_end": 7895,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "single-S005-1-direct",
+      "trip_id": "single-S005-1",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 6712,
+      "end": 8356,
+      "service_start": 6712,
+      "service_end": 8356,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "alt-S006-7-B-direct",
+      "trip_id": "alt-S006-7-B",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 6891,
+      "end": 7963,
+      "service_start": 6891,
+      "service_end": 7963,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "alt-S006-8-B-direct",
+      "trip_id": "alt-S006-8-B",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 7123,
+      "end": 8255,
+      "service_start": 7123,
+      "service_end": 8255,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    },
+    {
+      "option_id": "single-S001-2-direct",
+      "trip_id": "single-S001-2",
+      "mode": "direct",
+      "position": null,
+      "energy": 0.0,
+      "start": 8399,
+      "end": 9980,
+      "service_start": 8399,
+      "service_end": 9980,
+      "transit_energy": 0.0,
+      "relay": null,
+      "component": null
+    }
+  ],
+  "relay_missions": [
+    {
+      "mission_id": "RM01",
+      "relay": "R1",
+      "component": "R-BAT-2",
+      "position": [
+        23.03014566,
+        109.24054677000001,
+        211.72798919677734
+      ],
+      "start": 296,
+      "end": 1612,
+      "service_start": 721,
+      "service_end": 1390,
+      "trip_ids": [
+        "single-S002-1"
+      ],
+      "transit_energy": 0.12454464374265299,
+      "energy": 0.3287188976940187
+    },
+    {
+      "mission_id": "RM02",
+      "relay": "R1",
+      "component": "R-BAT-1",
+      "position": [
+        23.024593574999997,
+        109.2491511,
+        219.12010955810547
+      ],
+      "start": 309,
+      "end": 1597,
+      "service_start": 730,
+      "service_end": 1378,
+      "trip_ids": [
+        "single-S012-1"
+      ],
+      "transit_energy": 0.12334237238344611,
+      "energy": 0.32078895829713694
+    },
+    {
+      "mission_id": "RM03",
+      "relay": "R1",
+      "component": "R-BAT-3",
+      "position": [
+        23.03014566,
+        109.24054677000001,
+        211.72798919677734
+      ],
+      "start": 364,
+      "end": 1804,
+      "service_start": 789,
+      "service_end": 1582,
+      "trip_ids": [
+        "single-S002-2"
+      ],
+      "transit_energy": 0.12454464374265299,
+      "energy": 0.36677416460414775
+    },
+    {
+      "mission_id": "RM04",
+      "relay": "R1",
+      "component": "R-BAT-5",
+      "position": [
+        23.012321489999998,
+        109.246659485,
+        208.5081787109375
+      ],
+      "start": 495,
+      "end": 1776,
+      "service_start": 859,
+      "service_end": 1616,
+      "trip_ids": [
+        "pair-12-15-1-C"
+      ],
+      "transit_energy": 0.08522374516084724,
+      "energy": 0.31622245577024594
+    },
+    {
+      "mission_id": "RM05",
+      "relay": "R1",
+      "component": "R-BAT-4",
+      "position": [
+        23.00735457,
+        109.249312415,
+        214.62659454345703
+      ],
+      "start": 2093,
+      "end": 3051,
+      "service_start": 2469,
+      "service_end": 2877,
+      "trip_ids": [
+        "single-S014-1"
+      ],
+      "transit_energy": 0.09410594808045442,
+      "energy": 0.21831108126466778
+    },
+    {
+      "mission_id": "RM06",
+      "relay": "R1",
+      "component": "R-BAT-1",
+      "position": [
+        23.02488579,
+        109.23900344500001,
+        225.4494857788086
+      ],
+      "start": 5621,
+      "end": 6668,
+      "service_start": 6001,
+      "service_end": 6489,
+      "trip_ids": [
+        "single-S009-1"
+      ],
+      "transit_energy": 0.0977935619219828,
+      "energy": 0.2466211635356112
+    }
+  ]
+}

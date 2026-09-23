@@ -1,0 +1,27 @@
+{
+  "boxes": 80,
+  "unique_boxes": 80,
+  "trips": 31,
+  "total_energy_kwh": 88.83199,
+  "makespan_s": 12348.95,
+  "minimum_return_soc_pct": 21.273,
+  "first_deadline_violations": 0,
+  "medical_expectation_violations": 0,
+  "soft_expected_late_boxes": 25,
+  "coverage_unique": true,
+  "energy_feasible": true,
+  "resource_counts": {
+    "aircraft": {
+      "A": 4,
+      "B": 2,
+      "C": 2
+    },
+    "batteries": {
+      "A": 6,
+      "B": 4,
+      "C": 4
+    }
+  },
+  "algorithm": "deterministic event-driven heuristic; no global optimality claim",
+  "hard_constraints_pass": true
+}

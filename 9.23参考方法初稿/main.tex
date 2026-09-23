@@ -1,0 +1,39 @@
+% 使用 XeLaTeX 编译。匿名初稿保留封面身份占位符。
+\documentclass{gmcmthesis}
+\usepackage[section]{placeins}
+\usepackage{needspace}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{siunitx}
+\setcitestyle{super,square,comma}
+\title{山区洪涝灾害下无人机运输与通信协同优化}
+\baominghao{[参赛队号]}
+\schoolname{[学校名称]}
+\membera{[成员A]}
+\memberb{[成员B]}
+\memberc{[成员C]}
+\begin{document}
+\maketitle
+\begin{abstract}
+针对山区洪涝灾害中道路受阻、应急物资需求分散且通信链路受地形遮挡的问题，本文围绕无人机运输、时限排程、空中中继和任务分区建立分层优化框架。问题一依据无人机载荷与能耗约束确定服务区安全载荷，并将不可拆货箱划分为运输批次；参考结果给出 15 个服务区、80 个货箱的单区组批方案，共 18 架次，运输能耗为 57.937\,kWh。问题二在批次基础上安排运输机与电池资源，得到 20 个架次，其中 2 个架次串联服务两个服务区；参考排程完工时刻为 9980\,s，总能耗为 61.208\,kWh。问题三按参考解的通信模式配置直连与中继，20 个运输架次中 14 个采用直连、6 个采用中继，对应 6 项中继任务，报告中继能耗为 1.797\,kWh。问题四将运输架次连接的服务区视为不可拆组件，对 K=2、3 的独立任务分区进行峰值资源核算；根据用户提供的更新版 Q4 TEX，两个方案的最低库存缺口分别为 3 和 4 个单位，K=2 较少。
+
+本文所有数值均取自工作区归档参考结果文件或用户提供的新版 Q4 TEX；本稿未重新求解，也未对参考解作独立审计，因而结果应视为初稿报告值。文中着重说明分层建模关系、资源约束及结论适用范围。
+\keywords{应急物流\quad 无人机调度\quad 空地协同通信\quad 资源分区}
+\end{abstract}
+\pagestyle{plain}
+\input{sections/1_restatement}
+\input{sections/2_analysis}
+\input{sections/3_assumptions}
+\input{sections/4_symbols}
+\input{sections/5_problem1}
+\input{sections/6_problem2}
+\input{sections/7_problem3}
+\input{sections/8_problem4}
+\input{sections/8_sensitivity}
+\input{sections/9_evaluation}
+\begin{appendices}
+\input{sections/A_code}
+\end{appendices}
+\end{document}

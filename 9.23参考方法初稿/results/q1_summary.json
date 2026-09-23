@@ -1,0 +1,11 @@
+{
+  "areas": 15,
+  "boxes": 80,
+  "trips": 31,
+  "terrain": "C:\\Users\\邓承欣\\Desktop\\2026数学建模\\D题\\数据\\镇龙乡地理空间数据\\镇龙乡及周边地理数据\\数字高程模型数据（DEM）\\镇龙乡及周边30米DEM.tif",
+  "dem_sampling_spacing_m": 30,
+  "mass_kg": 758.0,
+  "energy_kwh": 88.83199,
+  "min_soc_pct": 21.273,
+  "all_batches_feasible": true
+}

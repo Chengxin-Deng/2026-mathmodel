@@ -1,0 +1,12 @@
+{
+  "boxes": 80,
+  "trips": 31,
+  "total_mass": 758.0,
+  "total_energy": 86.31561987259609,
+  "makespan": 11693.99479283526,
+  "relay_trips": 1,
+  "min_soc": 23.80332965904075,
+  "first_batch_violations": 0,
+  "medical_deadline_violations": 0,
+  "soft_expected_late_boxes": 25
+}

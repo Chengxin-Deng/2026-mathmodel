@@ -1,0 +1,15 @@
+\section{问题三：运输任务的通信保障}
+\subsection{通信模式与中继任务}
+令 $u_j=1$ 表示运输任务 $j$ 采用中继，$u_j=0$ 表示直连。以候选通信方案 $p\in\mathcal P_j$ 为单位，$w_{jp}$ 表示任务选择的模式、位置及资源组合。每个任务选择一个候选方案，并满足运输机通信模式连续覆盖的参考关系：
+\begin{equation}
+\sum_{p\in\mathcal P_j}w_{jp}=1,\qquad w_{jp}\in\{0,1\}.
+\end{equation}
+候选链路的可用性依据地形视距和双向链路预算确定；中继模式还需覆盖中继机转场、服务和返航区间，并分配相应的能源组件。该节沿用归档参考解中的候选选项与任务，不重新生成链路判定或优化通信位置。
+
+\subsection{参考结果}
+归档结果列出 64 个候选选项关系，最终运输模式计数为 14 个直连、6 个中继；配置 6 项中继任务，中继能耗合计 1.797\,kWh。图~\ref{fig:q3mode} 表示两种模式的架次计数，图~\ref{fig:q3relayenergy} 展示各中继任务的能耗。中继任务能耗约为 0.218--0.367\,kWh，差异来自任务转场与服务时长的不同。
+\begin{figure}[htbp]\centering\includegraphics[width=0.66\linewidth]{fig_q3_mode_count.png}\caption{通信模式架次构成}\label{fig:q3mode}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.86\linewidth]{fig_q3_relay_energy.png}\caption{中继任务能耗}\label{fig:q3relayenergy}\end{figure}
+
+\subsection{适用范围}
+以上数据用于描述给定参考解所采用的通信模式、任务数和能源统计口径。本文不将其表述为对所有通信资源并发冲突的独立审计结论，也不据此宣称联合全局最优。若部署要求不同中继机任务必须由单架实体机串行完成，应另行采用实体机区间约束并更新排程和结果。

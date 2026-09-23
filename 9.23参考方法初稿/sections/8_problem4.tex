@@ -1,0 +1,58 @@
+\section{问题四：固定任务分区与资源缺口}
+\subsection{不可拆组件与分区变量}
+问题四保持问题二的运输架次、问题三的通信任务及其时序不变，只对服务区进行独立任务分区。若同一运输架次涉及多个服务区，这些服务区必须归入同一组。以运输架次构造服务区无向连接图，其连通分量为不可拆组件。对 15 个服务区得到 13 个组件，其中 $\{S008,S011\}$ 与 $\{S010,S013\}$ 分别由双服务区架次连接，其余组件各含一个服务区。
+
+令 $g_{ih}\in\{0,1\}$ 表示组件 $i$ 是否分配到任务组 $h$，$h=1,\ldots,K$，其中 $K\in\{2,3\}$。每个组件恰分配一次且每组非空：
+\begin{equation}
+  \sum_{h=1}^{K}g_{ih}=1\quad(\forall i),\qquad
+  \sum_i g_{ih}\geq 1\quad(\forall h).
+  \label{eq:q4assign}
+\end{equation}
+以组件为分配对象可直接保证同一架次的服务区不可拆分。
+
+\subsection{组内峰值资源需求}
+固定任务开始和结束时刻。记 $I_{jr}$ 为任务 $j$ 对资源类型 $r$ 的占用区间，$\mathbf{1}(\cdot)$ 为示性函数，则组 $h$ 对资源 $r$ 的最少并发需求为
+\begin{equation}
+  N_{hr}^{\min}=\max_t\sum_{j\in h}\mathbf{1}(t\in I_{jr}).
+  \label{eq:q4peak}
+\end{equation}
+运输无人机区间取起飞至返航；电池区间延伸至充电结束；中继无人机区间包括出发、建链、服务和返航；中继能源组件区间还覆盖充电周转。对库存量 $S_r$，分区后的配置缺口为
+\begin{equation}
+  \Delta_r=\max\left(0,\sum_{h=1}^{K}N_{hr}^{\min}-S_r\right),\qquad
+  \Delta=\sum_r\Delta_r.
+  \label{eq:q4gap}
+\end{equation}
+根据用户提供的更新版 Q4 TEX，对 13 个组件的全部非空 $K$ 分区规范化枚举，以总缺口、总峰值配置数、工作量极差和保守资源冗余进行词典序比较；工作量评分沿用该节给定口径，包含架次时长、货箱量、运输能耗和中继服务时长的加权和。枚举规模分别为 $S(13,2)=4095$ 与 $S(13,3)=261{,}625$ 个无标签分区。此处仅转录其结果，不重新枚举。
+
+\subsection{分区方案与缺口比较}
+$K=2$ 的最低缺口分区为
+\begin{align*}
+G_1&=\{S001,S004,S005,S010,S013\},\\
+G_2&=\{S002,S003,S006,S007,S008,S009,S011,S012,S014,S015\}.
+\end{align*}
+合计峰值配置为 A/B/C 型运输机 $1/2/3$ 架、A/B/C 型电池 $1/4/4$ 组、中继无人机 4 架、中继能源组件 4 组。库存分别为 $4/2/2$ 架、$6/4/4$ 组、2 架和 6 组，因此缺口为 C 型运输机 1 架与中继无人机 2 架，共 3 个单位。
+
+$K=3$ 的最低缺口分区为
+\begin{align*}
+G_1&=\{S001,S004,S005\},\\
+G_2&=\{S002,S003,S006,S007,S009,S012,S014,S015\},\\
+G_3&=\{S008,S010,S011,S013\}.
+\end{align*}
+其峰值配置合计为 A/B/C 型运输机 $1/2/3$ 架、A/B/C 型电池 $1/4/5$ 组、中继无人机 4 架、中继能源组件 4 组；相对库存缺少 C 型运输机 1 架、C 型电池 1 组及中继无人机 2 架，共 4 个单位。
+
+\begin{table}[htbp]
+\centering\small
+\caption{两种分区的峰值配置与库存缺口}\label{tab:q4gap}
+\begin{tabular}{c c c c c c c}\toprule
+方案 & 运输机 A/B/C & 电池 A/B/C & 中继机 & 中继组件 & 缺口组成 & 缺口合计\\\midrule
+$K=2$ & 1/2/3 & 1/4/4 & 4 & 4 & C机1、中继机2 & 3\\
+$K=3$ & 1/2/3 & 1/4/5 & 4 & 4 & C机1、C电池1、中继机2 & 4\\\bottomrule
+\end{tabular}
+\end{table}
+图~\ref{fig:q4gapplot} 比较两种方案的缺口结构，图~\ref{fig:q4peakplot} 给出各类资源的峰值配置。$K=2$ 的峰值下界中继机需求为 4，而该更新版小节同时指出固定排程实际使用过的中继实体 ID 为 2；两者分别代表并发下界与排程 ID 统计，不应混为一谈。$K=3$ 将库存拆分到更多独立组后，C 型电池峰值需求增加，因此其总缺口较 $K=2$ 多 1 个单位。
+\begin{figure}[htbp]\centering\includegraphics[width=0.82\linewidth]{fig_q4_gap_comparison.png}\caption{两种分区资源缺口}\label{fig:q4gapplot}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.92\linewidth]{fig_q4_peak_resources.png}\caption{两种分区峰值配置}\label{fig:q4peakplot}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.62\linewidth]{fig_q4_k2_groups.png}\caption{$K=2$ 分区规模}\label{fig:q4k2}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.72\linewidth]{fig_q4_k3_groups.png}\caption{$K=3$ 分区规模}\label{fig:q4k3}\end{figure}
+
+本节分区只对冻结的运输和通信任务进行配置核算，不表示问题二、问题三与分区的联合全局最优。新版 Q4 TEX 声明其验证程序复核了服务区恰好覆盖一次和同架次服务区不可拆分；本文沿用该声明，不将之描述为本轮重新运行所得。

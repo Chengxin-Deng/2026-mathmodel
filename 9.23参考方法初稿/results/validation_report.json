@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": {
+    "boxes_unique": true,
+    "coverage": true,
+    "soc_ge_20": true,
+    "first_batch_deadlines": true,
+    "medical_deadlines": true,
+    "capacity": true,
+    "template_source": "computed from source attachments"
+  }
+}
