@@ -1,0 +1,96 @@
+\section{核心代码}
+
+本附录给出与正文结果一致、可复现关键指标的核心程序节选。运行环境：Python 3.11，依赖 \texttt{numpy}、\texttt{pandas}、\texttt{scipy}（\texttt{milp}/\texttt{brentq}）、\texttt{rasterio}（读取 $30\,$m DEM）。
+
+正文比较脚本为：问题一 \texttt{q1\_21.py}、\texttt{q1\_22.py}、\texttt{q1\_23.py}；问题二 \texttt{q2\_1.py}、\texttt{p2-1/}\allowbreak\texttt{solve\_p2\_1.py}、\texttt{q2\_2.py}；问题三 \texttt{q3\_1.py}、\texttt{q3\_2.py}；问题四 \texttt{q4\_1.py}、\texttt{q4\_2.py}。此外，\texttt{q1\_1.py} 提供最大安全载荷与独立基准，\texttt{p3-*} 与 \texttt{p4-*} 为不同路线链上的增强实验。输入为附件 xlsx 与 DEM，输出为各问的 CSV 结果与汇总 txt。完整代码随附件提交。
+
+\subsection{问题一：三段式能耗、最大安全载荷与三方案组批}
+
+\begin{Python}{等效航程能耗模型与最大安全载荷（q1\_1.py 节选）}
+G = 9.8; J_PER_KWH = 3.6e6; RHO_MARGIN = 0.20; CRUISE_CLEARANCE_M = 50.0
+
+def Lg(q, Qg, L0, LF):                       # 等效航程包络
+    q = np.clip(q, 0.0, Qg)
+    return L0 - (L0 - LF) * (q / Qg) ** 1.5
+
+def e_hor(d, q, Qg, L0, LF, e_use):          # 水平巡航能耗：用航程包络反推
+    return d / Lg(q, Qg, L0, LF) * e_use
+
+def e_up(h, q, m_empty, eta_climb):          # 爬升附加能耗 mgh/效率
+    return (m_empty + q) * G * max(h, 0.0) / (J_PER_KWH * eta_climb)
+
+def round_trip_energy(q, geo_row, spec_row): # 去程(载荷q)+返程(空载)，下降不计
+    Qg, L0, LF = spec_row["最大载货质量"], spec_row["空载标准航程"], spec_row["满载标准航程"]
+    e_use, m_empty, eta = spec_row["电池可用能量"], spec_row["含电池空载总质量"], spec_row["爬升能耗效率"]
+    d = geo_row["水平距离_m"]
+    e_out = e_hor(d, q, Qg, L0, LF, e_use) + e_up(geo_row["去程爬升高度_m"], q, m_empty, eta)
+    e_ret = e_hor(d, 0.0, Qg, L0, LF, e_use) + e_up(geo_row["返程爬升高度_m"], 0.0, m_empty, eta)
+    return e_out + e_ret
+
+def solve_qmax(geo_df, spec_df):             # 返航安全余量约束下的临界载荷
+    results = []
+    for _, spec in spec_df.iterrows():
+        Qg = spec["最大载货质量"]; e_limit = (1.0 - RHO_MARGIN) * spec["电池可用能量"]
+        for _, geo in geo_df.iterrows():
+            f = lambda q: round_trip_energy(q, geo, spec) - e_limit
+            if f(0.0) > 0:   q_max, lim = 0.0, "energy_infeasible"
+            elif f(Qg) <= 0: q_max, lim = Qg, "mass_cap"
+            else:            q_max, lim = brentq(f, 0.0, Qg, xtol=1e-6), "energy_margin"
+            results.append(dict(机型编号=spec["机型编号"], 服务区编号=geo["服务区编号"],
+                                q_max_kg=q_max, 限制因素=lim))
+    return pd.DataFrame(results)
+\end{Python}
+
+\subsection{问题一：集合划分三目标线性加权 MILP}
+
+\begin{Python}{三目标线性加权与集合划分求解（q1\_21.py 节选）}
+WEIGHT_SETS = [("均衡",(1/3,1/3,1/3)), ("架次优先",(0.6,0.2,0.2)), ("能耗优先",(0.2,0.6,0.2))]
+
+def weighted_cost(candidates, boxes_df, weights):   # N/E/T 纯比例缩放后加权
+    w_n, w_e, w_t = weights
+    n_range = len(boxes_df) - boxes_df["服务区编号"].nunique()
+    e = candidates["E_batch_kWh"].values; t = candidates["T_batch_s"].values
+    return (w_n * (1.0 / n_range) + w_e * (e / e.max()) + w_t * (t / t.max()))
+
+# 集合划分：每个货箱恰被一个候选批次覆盖，scipy.milp 精确求解 0-1 规划
+boxes_df, spec_df, qmax_lookup, geo_table = load_base_data()
+candidates = enumerate_candidates(boxes_df, spec_df, geo_table, qmax_lookup)  # DFS 剪枝枚举 19525 个
+for name, weights in WEIGHT_SETS:
+    cost = weighted_cost(candidates, boxes_df, weights)
+    chosen_idx = solve_set_partitioning(candidates, boxes_df, cost)           # milp: A_eq x = 1
+    selected = candidates.iloc[chosen_idx]
+    N, E_total, T_total = total_metrics(selected)                            # -> N=18, 59.072 kWh, 32801.7 s
+\end{Python}
+
+\subsection{问题一：分服务区 NSGA-II 与 Minkowski 合并}
+\begin{Python}{问题一方法三（q1\_23.py）核心流程}
+for area in areas:
+    local_front[area] = run_nsga2_for_area(area)
+global_front = minkowski_sum_and_filter(local_front)
+representative = min(global_front, key=normalized_distance_to_ideal)
+\end{Python}
+
+\subsection{问题四：must-link 收缩与完全枚举分区}
+
+\begin{Python}{原子块收缩与 K 分区完全枚举（q4\_1.py 节选）}
+# 多站架次 -> must-link 约束 -> 并查集收缩为 13 个原子任务块
+blocks = contract_by_mustlink(routes)        # {S007,S015},{S008,S011} 同块，其余各自成块
+
+def eval_partition(groups):                  # 各组独立核算资源并计缺口/均衡
+    scales, gaps = [], defaultdict(int)
+    for g in groups:
+        need = simulate_group_resources(g)   # 分机型运输机/电池/中继机/能源组件峰值
+        scales.append(sum(need.values()))
+        for k, v in need.items(): gaps[k] += v
+    shortage = sum(max(0, gaps[k] - INVENTORY[k]) for k in INVENTORY)
+    cv = np.std(scales) / np.mean(scales)    # 组间工作量均衡系数
+    return dict(scale=sum(scales), balance=cv, gap=shortage)
+
+def best_partition(blocks, K):               # 完全枚举，词典序: 缺口->规模->均衡
+    best = None
+    for groups in all_partitions(blocks, K): # K=2 枚举4095、K=3 枚举261625
+        m = eval_partition(groups)
+        key = (m["gap"], m["scale"], m["balance"])
+        if best is None or key < best[0]: best = (key, groups, m)
+    return best
+\end{Python}
