@@ -1,0 +1,7 @@
+[通信常量] f=2400MHz Lsys=3.0dB Lobs=10.0dB Pth=-90.0dBm
+[G01位置] lon=109.230852 lat=23.008509 alt_abs=147.7m
+[中继预计算] 已写入磁盘缓存 C:\Users\24404\PycharmProjects\pythonProject1\2026年研赛D题\q3_relay_precompute_cache.pkl
+[通信画像] 有向腿数=240  相位总数=720  需中继相位数=586
+[中继候选] 候选点数=3420
+[覆盖预计算] 需覆盖相位数=586  其中零候选覆盖(硬缺口)=0  三表合计用时=518.0s
+[done] q3_common 自检完成，总用时=518.5s

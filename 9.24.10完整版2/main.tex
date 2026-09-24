@@ -1,0 +1,110 @@
+% 华为杯全国研究生数学建模竞赛模板
+% 基于 gmcmthesis 文档类
+\documentclass[bwprint]{gmcmthesis}
+
+% === 额外宏包（cls 未内置的）===
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[section]{placeins}
+\usepackage{needspace}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{algorithm2e}
+
+% === TikZ ===
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
+\usepackage{longtable}
+
+% === 引用上标格式 ===
+\setcitestyle{super,square,comma}
+
+% === Windows 中文字体覆盖（cls 默认面向 macOS 的 Songti SC 等，此处映射到 Windows 系统字体）===
+\setCJKmainfont[AutoFakeBold=2.15]{SimSun}
+\setCJKsansfont[AutoFakeBold=2.15]{SimHei}
+\setCJKfamilyfont{zhsong}[AutoFakeBold=2.15]{SimSun}
+\setCJKfamilyfont{zhhei}[AutoFakeBold=2.15]{SimHei}
+\setCJKfamilyfont{zhkai}[AutoFakeBold=2.15]{KaiTi}
+\setCJKfamilyfont{zhli}[AutoFakeBold=2.15]{SimSun}
+
+% === 修复摘要后空白页（gmcmthesis 的 abstract 结束时有 \newpage\null）===
+\makeatletter
+\renewenvironment{abstract}{%
+  \if@twocolumn\section*{\gmcm@cap@abstractname}%
+  \else\begin{center}{\zihao{4}\bfseries \gmcm@cap@abstractname\vspace{-.5em}\vspace{\z@}}\end{center}\quotation
+  \fi}{\if@twocolumn\else\endquotation\fi}
+\makeatother
+
+% === 竞赛信息 ===
+\title{山区洪涝灾害下无人机运输与通信协同优化的多目标建模与求解}
+\baominghao{[参赛队号]}
+\schoolname{[学校名称]}
+\membera{[成员A]}
+\memberb{[成员B]}
+\memberc{[成员C]}
+
+\begin{document}
+
+\maketitle
+
+% === 摘要 ===
+\begin{abstract}
+
+针对 2026 年中国研究生数学建模竞赛 D 题"山区洪涝灾害下无人机运输与通信协同优化"，本文以广西横州市镇龙乡洪涝灾害为背景，构建了从单点往返运输能力、多点多架次调度、通信中继联合调度到任务分区资源配置的递进式多目标优化体系，并逐问给出可复现的模型、算法与结果。
+
+\textbf{问题一}：基于 30\,m DEM 与节点坐标建立"地形净空—等效航程包络"能耗模型，以航程包络反推水平能耗、以重力势能叠加爬升附加能耗、下降能耗取 0，用数值求根求得 45 组（3 机型 $\times$ 15 服务区）最大安全载荷；进而以货箱不可拆分、载质量/装载体积/返航安全余量三约束，采用 Best-Fit Decreasing 启发式与 0-1 集合划分精确 MILP 联合完成 80 箱组批，得到 18 架次、平均质量利用率 79.8\%、体积利用率 76.7\%。对架次数 $N$、总能耗 $E$、累计作业时间 $T$ 的多目标组批，分别用线性加权法、Chebyshev 妥协规划与 NSGA-II 三种方法求解，三者均收敛于 $N=18$、$E=59.072$\,kWh、$T=32801.7$\,s 的同一方案，交叉验证了结果的可靠性；返航余量敏感性分析表明余量提高到 40\% 时部分机型不可行。
+
+\textbf{问题二}：将问题扩展为异构无人机多点多架次调度，建立含 8 架实体机、共享电池池、两阶段充电与硬时限约束的四目标模型（配送及时性、任务完成时间、运输能耗、架次数）。主方案采用 NSGA-II 全局多目标进化求解，得到 29 架次、总能耗 82.777\,kWh、硬约束违反为 0 的严格可行方案，并给出 29 条运输路线、逐箱送达时刻与无人机/电池资源排程；与贪心多站合并构造解（16 架次、58.179\,kWh、5 处硬时限违约）对比，刻画了"严格可行"与"少架次节能"之间的权衡，最终以严格可行方案作为问题三的承接基准。
+
+\textbf{问题三}：叠加通信保障，建立自由空间损耗、DEM 地形遮挡与双向链路预算相耦合的通信可行性判定模型及中继联合调度模型。主方案承接问题二贪心路线，经中继候选网格枚举与集合覆盖分配，得到运输 16 架次 + 中继 13 架次、总能耗 67.387\,kWh、通信中断 0 的方案；与 NSGA-II 联合优化解（90 架次、135.639\,kWh）对比，量化了通信保障带来的合理代价。
+
+\textbf{问题四}：以问题三方案为基础，经并查集 must-link 收缩得到 13 个原子任务块，建立任务分区与资源配置核算模型（资源缺口、配置规模、组间均衡、冗余四指标）。主方案采用完全枚举精确求解，在 $S(13,2)=4095$、$S(13,3)=261625$ 个无标签分区上给出 K=2/K=3 全局最优分区（资源缺口均为 1）；与负载均衡初始化 + 模拟退火局部搜索解（缺口 3/4）对比，验证精确解的全局最优性、说明局部搜索在更大规模下的可扩展性，并给出中继无人机等资源的缺口及成因。
+
+综上，本文四问环环相扣、公共能耗与口径统一，多方法交叉验证保证了结果的正确性与可信度，可为山区洪涝灾害应急物流的无人机运输与通信保障组织提供定量决策依据。
+
+\keywords{无人机应急物流\quad 多目标优化\quad NSGA-II\quad 通信中继\quad 任务分区\quad 资源配置}
+\end{abstract}
+
+\pagestyle{plain}
+
+% === 目录（华为杯篇幅长，建议加目录）===
+\newpage
+\tableofcontents
+\clearpage
+
+% === 正文 ===
+\input{sections/1_restatement}
+\input{sections/1b_data}
+\input{sections/2_analysis}
+\input{sections/3_assumptions}
+\input{sections/4_symbols}
+\input{sections/5_problem1}
+\input{sections/6_problem2}
+\input{sections/7_problem3}
+\input{sections/8_sensitivity}
+\input{sections/9_sensitivity}
+\input{sections/9_evaluation}
+
+% === 参考文献 ===
+\begin{thebibliography}{99}
+\bibitem[1]{ref_xinhua} 新华社. 记者手记：抵近广西横州镇龙乡[EB/OL]. 2026-07-09[2026-08-07]. https://www.xinhuanet.com/politics/20260709/acf8e4b353304bb78007d8224f1cd2ef/c.html.
+\bibitem[2]{ref_dianxun} 新华每日电讯. 三进"孤岛乡"[EB/OL]. 2026-07-12[2026-08-07]. https://www.news.cn/local/20260712/8bd1f64af3124569b5cf4415fc013acd/c.html.
+\bibitem[3]{ref_copdem} Copernicus Data Space Ecosystem. Copernicus DEM—Global and European Digital Elevation Model[DB/OL]. [2026-08-07]. DOI: 10.5270/ESA-c5d3d65.
+\bibitem[4]{ref_dorling} Dorling K, Heinrichs J, Messier G G, et al. Vehicle Routing Problems for Drone Delivery[J]. IEEE Transactions on Systems, Man, and Cybernetics: Systems, 2017, 47(1): 70-85.
+\bibitem[5]{ref_zhang} Zhang J, Campbell J F, Sweeney D C, et al. Energy Consumption Models for Delivery Drones: A Comparison and Assessment[J]. Transportation Research Part D: Transport and Environment, 2021, 90: 102668.
+\bibitem[6]{ref_itu} International Telecommunication Union. Recommendation ITU-R P.525-5: Calculation of Free-Space Attenuation[S/OL]. 2024. https://www.itu.int/rec/R-REC-P.525-5-202411-I/en.
+\bibitem[7]{ref_ti} Texas Instruments. Li-Ion Battery Charger Solution Using an MSP430 MCU[EB/OL]. https://www.ti.com/lit/an/slaa287b/slaa287b.pdf.
+\bibitem[8]{ref_zeng} Zeng Y, Zhang R, Lim T J. Wireless Communications with Unmanned Aerial Vehicles: Opportunities and Challenges[J]. IEEE Communications Magazine, 2016, 54(5): 36-42.
+\bibitem[9]{ref_dji} DJI Enterprise. Matrice 350 RTK Specifications[EB/OL]. https://enterprise.dji.com/matrice-350-rtk/specs.
+\bibitem[10]{ref_doodle} Doodle Labs. Sense: Interference Avoidance[EB/OL]. https://doodlelabs.com/news/sense-interference-avoidance-release/.
+\bibitem[11]{ref_nsga2} Deb K, Pratap A, Agarwal S, et al. A fast and elitist multiobjective genetic algorithm: NSGA-II[J]. IEEE Transactions on Evolutionary Computation, 2002, 6(2): 182-197.
+\bibitem[12]{ref_zhan} Zhan P, Yu K, Swindlehurst A L. Wireless Relay Communications with Unmanned Aerial Vehicles: Performance and Optimization[J]. IEEE Transactions on Aerospace and Electronic Systems, 2011, 47(3): 2068-2085.
+\bibitem[13]{ref_sa} Kirkpatrick S, Gelatt C D, Vecchi M P. Optimization by Simulated Annealing[J]. Science, 1983, 220(4598): 671-680.
+\end{thebibliography}
+
+% === 附录 ===
+\begin{appendices}
+\input{sections/A_code}
+\input{sections/B_tables}
+\end{appendices}
+
+\end{document}

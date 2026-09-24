@@ -1,0 +1,90 @@
+\contentsline {section}{\numberline {1\hskip 0.05em\relax .}问题重述}{6}{section.1}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 1}问题背景}{6}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 2}问题内容}{6}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 3}各问题的数据继承关系}{7}{subsection.1.3}%
+\contentsline {section}{\numberline {2\hskip 0.05em\relax .}数据描述与预处理}{7}{section.2}%
+\contentsline {subsection}{\numberline {2\hskip 0.05em\relax .\hskip 0.05em\relax 1}数据来源与文件清单}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2\hskip 0.05em\relax .\hskip 0.05em\relax 2}物资需求与应急优先级}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2\hskip 0.05em\relax .\hskip 0.05em\relax 3}运输无人机与共享电池参数}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2\hskip 0.05em\relax .\hskip 0.05em\relax 4}中继无人机与通信链路参数}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2\hskip 0.05em\relax .\hskip 0.05em\relax 5}数据预处理流程}{9}{subsection.2.5}%
+\contentsline {section}{\numberline {3\hskip 0.05em\relax .}问题分析}{10}{section.3}%
+\contentsline {subsection}{\numberline {3\hskip 0.05em\relax .\hskip 0.05em\relax 1}总体思路}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3\hskip 0.05em\relax .\hskip 0.05em\relax 2}问题一的分析}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3\hskip 0.05em\relax .\hskip 0.05em\relax 3}问题二的分析}{12}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3\hskip 0.05em\relax .\hskip 0.05em\relax 4}问题三的分析}{12}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3\hskip 0.05em\relax .\hskip 0.05em\relax 5}问题四的分析}{12}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3\hskip 0.05em\relax .\hskip 0.05em\relax 6}技术路线图}{13}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3\hskip 0.05em\relax .\hskip 0.05em\relax 7}研究框架与创新点}{13}{subsection.3.7}%
+\contentsline {section}{\numberline {4\hskip 0.05em\relax .}模型假设}{13}{section.4}%
+\contentsline {section}{\numberline {5\hskip 0.05em\relax .}符号说明}{14}{section.5}%
+\contentsline {section}{\numberline {6\hskip 0.05em\relax .}问题一：单点往返运输能力与货箱组批方案}{17}{section.6}%
+\contentsline {subsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 1}数据预处理与场景概览}{17}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 2}无人机时间与能耗模型}{17}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 2\hskip 0.05em\relax .\hskip 0.05em\relax 1}航段几何与计划巡航海拔}{17}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 2\hskip 0.05em\relax .\hskip 0.05em\relax 2}水平与爬升能耗}{18}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 2\hskip 0.05em\relax .\hskip 0.05em\relax 3}作业时间模型}{19}{subsubsection.6.2.3}%
+\contentsline {subsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 3}最大安全载荷的计算}{19}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 4}货箱组批方案（第 1 小问）}{21}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 4\hskip 0.05em\relax .\hskip 0.05em\relax 1}BFD 启发式构造}{21}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 4\hskip 0.05em\relax .\hskip 0.05em\relax 2}集合划分 MILP 建模}{22}{subsubsection.6.4.2}%
+\contentsline {subsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 5}多目标组批优化（第 2 小问）}{22}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 5\hskip 0.05em\relax .\hskip 0.05em\relax 1}候选批次枚举}{22}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 5\hskip 0.05em\relax .\hskip 0.05em\relax 2}方法 1：线性加权法}{23}{subsubsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 5\hskip 0.05em\relax .\hskip 0.05em\relax 3}方法 2：理想点法（Chebyshev 妥协规划）}{23}{subsubsection.6.5.3}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 5\hskip 0.05em\relax .\hskip 0.05em\relax 4}方法 3：NSGA-II + Minkowski 和合并}{23}{subsubsection.6.5.4}%
+\contentsline {subsubsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 5\hskip 0.05em\relax .\hskip 0.05em\relax 5}三种方法结果一致性}{24}{subsubsection.6.5.5}%
+\contentsline {subsection}{\numberline {6\hskip 0.05em\relax .\hskip 0.05em\relax 6}返航安全余量敏感性分析（第 3 小问）}{25}{subsection.6.6}%
+\contentsline {section}{\numberline {7\hskip 0.05em\relax .}问题二：异构无人机多点多架次运输调度}{26}{section.7}%
+\contentsline {subsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 1}模型建立}{26}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 1}多站路线能耗与时间}{26}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 2}两阶段充电模型}{27}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 3}四目标与硬约束分离}{27}{subsubsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 4}资源调度约束的离散事件建模}{28}{subsubsection.7.1.4}%
+\contentsline {subsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 2}主方案：NSGA-II 全局多目标优化}{28}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 2\hskip 0.05em\relax .\hskip 0.05em\relax 1}逐箱送达时刻与配送及时性}{29}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 2\hskip 0.05em\relax .\hskip 0.05em\relax 2}资源使用与可行性检验}{29}{subsubsection.7.2.2}%
+\contentsline {subsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 3}对比方法：贪心多站合并 + 派单规则扫描}{30}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7\hskip 0.05em\relax .\hskip 0.05em\relax 4}模型比对与权衡分析}{33}{subsection.7.4}%
+\contentsline {section}{\numberline {8\hskip 0.05em\relax .}问题三：通信约束下的运输与中继联合调度}{35}{section.8}%
+\contentsline {subsection}{\numberline {8\hskip 0.05em\relax .\hskip 0.05em\relax 1}通信链路模型}{35}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 1}地形遮挡判定}{35}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 2}双向链路预算}{35}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 3}传播损耗与链路可用性}{35}{subsubsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 4}中继能耗与候选网格}{36}{subsubsection.8.1.4}%
+\contentsline {subsection}{\numberline {8\hskip 0.05em\relax .\hskip 0.05em\relax 2}主方案：贪心构造 + 中继覆盖分配}{36}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8\hskip 0.05em\relax .\hskip 0.05em\relax 3}对比方法：NSGA-II 路线-中继联合优化}{39}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8\hskip 0.05em\relax .\hskip 0.05em\relax 4}模型比对与通信代价量化}{40}{subsection.8.4}%
+\contentsline {section}{\numberline {9\hskip 0.05em\relax .}问题四：救援任务分区与资源配置优化}{41}{section.9}%
+\contentsline {subsection}{\numberline {9\hskip 0.05em\relax .\hskip 0.05em\relax 1}模型建立}{41}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 1}must-link 收缩与原子任务块}{41}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 2}资源峰值并发需求核算}{41}{subsubsection.9.1.2}%
+\contentsline {subsubsection}{\numberline {9\hskip 0.05em\relax .\hskip 0.05em\relax 1\hskip 0.05em\relax .\hskip 0.05em\relax 3}四维评价指标}{42}{subsubsection.9.1.3}%
+\contentsline {subsection}{\numberline {9\hskip 0.05em\relax .\hskip 0.05em\relax 2}主方案：完全枚举精确分区}{42}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9\hskip 0.05em\relax .\hskip 0.05em\relax 3}对比方法：负载均衡初始化 + 模拟退火局部搜索}{44}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9\hskip 0.05em\relax .\hskip 0.05em\relax 4}模型比对与资源缺口分析}{44}{subsection.9.4}%
+\contentsline {section}{\numberline {10\hskip 0.05em\relax .}敏感性分析与稳健性验证}{46}{section.10}%
+\contentsline {subsection}{\numberline {10\hskip 0.05em\relax .\hskip 0.05em\relax 1}返航安全余量敏感性（问题一）}{46}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10\hskip 0.05em\relax .\hskip 0.05em\relax 2}机队与电池资源敏感性（问题二）}{47}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10\hskip 0.05em\relax .\hskip 0.05em\relax 3}通信链路参数敏感性（问题三）}{47}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10\hskip 0.05em\relax .\hskip 0.05em\relax 4}分区数目敏感性（问题四）}{47}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10\hskip 0.05em\relax .\hskip 0.05em\relax 5}跨方法交叉验证小结}{48}{subsection.10.5}%
+\contentsline {section}{\numberline {11\hskip 0.05em\relax .}模型评价、稳健性分析与推广}{48}{section.11}%
+\contentsline {subsection}{\numberline {11\hskip 0.05em\relax .\hskip 0.05em\relax 1}模型优点}{48}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11\hskip 0.05em\relax .\hskip 0.05em\relax 2}算法复杂度与可扩展性分析}{49}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11\hskip 0.05em\relax .\hskip 0.05em\relax 3}模型缺点与改进方向}{49}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11\hskip 0.05em\relax .\hskip 0.05em\relax 4}稳健性与交叉验证小结}{50}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11\hskip 0.05em\relax .\hskip 0.05em\relax 5}模型推广}{50}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11\hskip 0.05em\relax .\hskip 0.05em\relax 6}全文结果汇总}{51}{subsection.11.6}%
+\contentsline {section}{参考文献}{51}{section*.63}%
+\contentsline {section}{附录 \numberline {A}核心代码}{53}{section.1.A}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 1}能耗模型与最大安全载荷（问题一）}{53}{subsection.1.A.1}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 2}候选枚举与集合划分 MILP（问题一第 2 小问）}{54}{subsection.1.A.2}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 3}多站路线能耗与资源仿真（问题二）}{55}{subsection.1.A.3}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 4}通信链路判定（问题三）}{55}{subsection.1.A.4}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 5}资源峰值核算与分区打分（问题四）}{56}{subsection.1.A.5}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 6}NSGA-II 全局多目标优化主循环（问题二主方案）}{57}{subsection.1.A.6}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 7}贪心多站合并（问题二对比方法）}{58}{subsection.1.A.7}%
+\contentsline {subsection}{\numberline {1\hskip 0.05em\relax .\hskip 0.05em\relax 8}模拟退火局部搜索分区（问题四对比方法）}{59}{subsection.1.A.8}%
+\contentsline {section}{附录 \numberline {B}结果明细表}{60}{section.1.B}%
+\contentsfinish 

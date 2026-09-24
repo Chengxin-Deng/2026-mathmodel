@@ -1,0 +1,238 @@
+\section{核心代码}
+
+本文求解脚本基于 Python 3 + NumPy/Pandas/SciPy/rasterio 实现，各问题独立成文件、共用公共引擎，可直接复现正文结果。以下列出关键模块的核心实现（为排版可读性，代码内中文变量名统一译为拼音/英文缩写，逻辑与原始脚本一致）。
+
+\subsection{能耗模型与最大安全载荷（问题一）}
+
+\begin{Python}{能耗模型与最大安全载荷 q\_max（q1\_1.py 核心片段）}
+def Lg(q, Qg, L0, LF):
+    q = np.clip(q, 0.0, Qg)
+    return L0 - (L0 - LF) * (q / Qg) ** 1.5
+
+def e_hor(d, q, Qg, L0, LF, e_use):
+    return d / Lg(q, Qg, L0, LF) * e_use
+
+def e_up(h, q, m_empty, eta_climb):
+    h = max(h, 0.0)
+    return (m_empty + q) * G * h / (J_PER_KWH * eta_climb)
+
+def round_trip_energy(q, geo_row, spec_row):
+    """outbound (load q) + return (empty), descent energy = 0."""
+    Qg, L0, LF = spec_row["Qmax"], spec_row["L0"], spec_row["LF"]
+    e_use, m_empty, eta = spec_row["Euse"], spec_row["m_empty"], spec_row["eta_climb"]
+    d = geo_row["dist_m"]
+    e_out = e_hor(d, q, Qg, L0, LF, e_use) + e_up(geo_row["h_up_out"], q, m_empty, eta)
+    e_ret = e_hor(d, 0.0, Qg, L0, LF, e_use) + e_up(geo_row["h_up_ret"], 0.0, m_empty, eta)
+    return e_out + e_ret
+
+def solve_qmax(geo_df, spec_df):
+    """q_max is the root of E_round(q) = (1-rho)*E_use on [0, Qg]."""
+    for _, spec_row in spec_df.iterrows():
+        e_limit = (1.0 - RHO_MARGIN) * spec_row["Euse"]
+        for _, geo_row in geo_df.iterrows():
+            f = lambda q: round_trip_energy(q, geo_row, spec_row) - e_limit
+            if f(0.0) > 0:
+                q_max, limiting = 0.0, "energy_infeasible_even_empty"
+            elif f(spec_row["Qmax"]) <= 0:
+                q_max, limiting = spec_row["Qmax"], "mass_cap"
+            else:
+                q_max = brentq(f, 0.0, spec_row["Qmax"], xtol=1e-6)
+                limiting = "energy_margin"
+\end{Python}
+
+\subsection{候选枚举与集合划分 MILP（问题一第 2 小问）}
+
+\begin{Python}{集合划分精确求解器（q1\_2\_common.py 核心片段）}
+def dfs_subsets(boxes_i, cap_mass, cap_vol):
+    """DFS + pruning: enumerate all feasible box subsets."""
+    stack, results = [(0, (), 0.0, 0.0)], []
+    while stack:
+        idx, chosen, mass_sum, vol_sum = stack.pop()
+        if chosen:
+            results.append((chosen, mass_sum, vol_sum))
+        for j in range(idx, len(boxes_i)):
+            nm = mass_sum + boxes_i[j]["mass"]
+            nv = vol_sum + boxes_i[j]["vol"]
+            if nm <= cap_mass + 1e-9 and nv <= cap_vol + 1e-9:
+                stack.append((j + 1, chosen + (j,), nm, nv))
+    return results
+
+def solve_set_partitioning(candidates_df, boxes_df, cost):
+    """0-1 set partitioning: each box covered exactly once, min cost^T x."""
+    A, _ = build_incidence(boxes_df, candidates_df)   # box x candidate matrix
+    constraint = LinearConstraint(A, lb=np.ones(A.shape[0]), ub=np.ones(A.shape[0]))
+    res = milp(c=np.asarray(cost, float), constraints=[constraint],
+               integrality=np.ones(len(candidates_df)), bounds=Bounds(lb=0, ub=1))
+    return np.where(res.x > 0.5)[0]
+\end{Python}
+
+\subsection{多站路线能耗与资源仿真（问题二）}
+
+\begin{Python}{多站路线逐腿能耗（q2\_common.py 核心片段）}
+def evaluate_route(stops, boxes_by_stop, spec_row, leg_geo):
+    """O01 -> s1 -> ... -> sK -> O01, energy by leg with current load."""
+    Qg, Vg = spec_row["Qmax"], spec_row["Vmax"]
+    total_mass = sum(b["mass"] for s in stops for b in boxes_by_stop[s])
+    total_vol  = sum(b["vol"]  for s in stops for b in boxes_by_stop[s])
+    if total_mass > Qg + 1e-9 or total_vol > Vg + 1e-9:
+        return dict(feasible=False, reason="mass_or_volume_exceeds_cap")
+    path = ["O01"] + list(stops) + ["O01"]
+    cur_mass, energy, t = total_mass, 0.0, 0.0
+    for k in range(len(path) - 1):
+        a, b = path[k], path[k + 1]
+        g = leg_geo[(a, b)]
+        energy += e_hor(g["dist_m"], cur_mass, Qg, L0, LF, e_use) \
+                + e_up(g["h_up"], cur_mass, m_empty, eta)
+        t += g["dist_m"] / v_cruise + g["h_up"] / v_climb + g["h_down"] / v_desc
+        if b != "O01":
+            drop = boxes_by_stop[b]
+            t += t_handover + t_handover_per_box * len(drop)
+            cur_mass -= sum(x["mass"] for x in drop)
+    feasible = energy <= (1.0 - RHO_MARGIN) * e_use + 1e-9
+    return dict(feasible=feasible, E_route_kWh=energy, T_route_s=t)
+\end{Python}
+
+\subsection{通信链路判定（问题三）}
+
+\begin{Python}{自由空间损耗 + 地形遮挡 + 链路预算（q3\_common.py 核心片段）}
+def fspl_db(dist_km, f_mhz):
+    return 32.44 + 20 * np.log10(max(dist_km, 1e-3)) + 20 * np.log10(f_mhz)
+
+def line_of_sight_clear(dem, tf, lon1, lat1, alt1, lon2, lat2, alt2):
+    """Sample DEM along the 3D line; no penetration means clear LOS."""
+    n = max(30, math.ceil(planar_distance_km(lon1, lat1, lon2, lat2) * 1000.0 / 30.0))
+    fracs = np.linspace(0.0, 1.0, n)
+    lons = lon1 + (lon2 - lon1) * fracs
+    lats = lat1 + (lat2 - lat1) * fracs
+    line_alts = alt1 + (alt2 - alt1) * fracs
+    cols, rows = (~tf) * (lons, lats)
+    ground = dem[np.clip(np.round(cols).astype(int), 0, dem.shape[1]-1),
+                 np.clip(np.round(rows).astype(int), 0, dem.shape[0]-1)]
+    return bool(np.all(line_alts[1:-1] >= ground[1:-1] - 1e-6))
+
+def link_ok(lon1, lat1, alt1, lon2, lat2, alt2, role_a, role_b, comm, dem, tf):
+    lmax = link_budget_db(role_a, role_b, comm)   # min of two directions
+    clear = line_of_sight_clear(dem, tf, lon1, lat1, alt1, lon2, lat2, alt2)
+    loss = fspl_db(slant_km(lon1, lat1, alt1, lon2, lat2, alt2), comm["f_mhz"]) \
+           + (0.0 if clear else comm["Lobs"])
+    return (lmax - loss) >= 0.0
+\end{Python}
+
+\subsection{资源峰值核算与分区打分（问题四）}
+
+\begin{Python}{事件扫描峰值并发 + 分区四维打分（q4\_common.py 核心片段）}
+def overlap_peak(intervals):
+    """Max overlap count of half-open intervals via event sweep."""
+    events = []
+    for a, b in intervals:
+        events += [(a, 1), (b, -1)]
+    events.sort(key=lambda z: (z[0], z[1]))
+    cur = peak = 0
+    for _, d in events:
+        cur += d
+        peak = max(peak, cur)
+    return peak
+
+def evaluate_partition(assignment, ...):
+    """gap / redundancy aggregated over groups per resource key."""
+    total_need_by_key = {key: sum(needs.get((g, key), 0) for g in range(k))
+                         for key in all_keys}
+    gap = sum(max(0, total_need_by_key[key] - inv.get(key, 0)) for key in all_keys)
+    redundancy = sum(max(0, inv.get(key, 0) - total_need_by_key[key]) for key in all_keys)
+    wvals = np.array([sum([v["hours"], v["energy"], v["boxes"] * 0.1])
+                      for v in workload.values()])
+    balance = float(np.std(wvals) / max(np.mean(wvals), 1e-9))
+    return dict(gap=gap, total_need=sum(needs.values()), balance=balance,
+                redundancy=redundancy, score=(gap, total_need, balance, redundancy))
+\end{Python}
+
+\subsection{NSGA-II 全局多目标优化主循环（问题二主方案）}
+
+\begin{Python}{NSGA-II 进化主循环（q2\_1.py 核心片段）}
+def run_nsga2(box_ids, box_area, area_list, ..., pop_size, n_gen, rng):
+    pop = build_seed_population(box_ids, box_area, area_list, pop_size, rng)
+    metrics = [ev(ind) for ind in pop]          # 解码+离散事件仿真得 f1~f4 与 violation
+    for gen in range(n_gen):
+        fronts = fast_nondominated_sort(metrics)  # Deb 约束支配：先 violation 后 Pareto
+        rank, crowd = {}, {}
+        for r, f in enumerate(fronts):
+            for i in f: rank[i] = r
+        for f in fronts: crowd.update(crowding_distance(f, metrics))
+        offspring = []
+        while len(offspring) < pop_size:
+            p1 = tournament_select(idxs, rank, crowd, rng)
+            p2 = tournament_select(idxs, rank, crowd, rng)
+            child = mutate(crossover(pop[p1], pop[p2], rng), ...)
+            offspring.append(child)
+        off_metrics = [ev(ind) for ind in offspring]
+        combined, combined_metrics = pop + offspring, metrics + off_metrics
+        c_fronts = fast_nondominated_sort(combined_metrics)
+        new_pop, new_metrics = [], []            # 环境选择：按前沿逐层填满 pop_size
+        for f in c_fronts:
+            if len(new_pop) + len(f) <= pop_size:
+                new_pop += [combined[i] for i in f]
+                new_metrics += [combined_metrics[i] for i in f]
+            else:
+                cd = crowding_distance(f, combined_metrics)
+                chosen = sorted(f, key=lambda i: -cd[i])[:pop_size - len(new_pop)]
+                new_pop += [combined[i] for i in chosen]
+                new_metrics += [combined_metrics[i] for i in chosen]
+                break
+        pop, metrics = new_pop, new_metrics
+    return pop, metrics, gen_times
+\end{Python}
+
+\subsection{贪心多站合并（问题二对比方法）}
+
+\begin{Python}{贪心多站合并（q2\_2.py 核心片段）}
+def greedy_merge_routes(routes, spec_df, leg_geo, log=None):
+    """两两合并优先；两两无收益时才试三合一。合并判据=能耗节省>阈值。"""
+    active = list(routes)
+    while True:
+        best = None                             # (saving, idx_tuple, merged_route)
+        for i in range(len(active)):
+            for j in range(i + 1, len(active)):
+                ra, rb = active[i], active[j]
+                if set(ra["stops"]) & set(rb["stops"]): continue
+                if len(ra["stops"]) + len(rb["stops"]) > MAX_STOPS: continue
+                merged = try_merge([ra, rb], spec_df, leg_geo)
+                if merged is None: continue
+                saving = ra["E_route_kWh"] + rb["E_route_kWh"] - merged["E_route_kWh"]
+                if saving > MERGE_EPS_KWH and (best is None or saving > best[0]):
+                    best = (saving, (i, j), merged)
+        if best is None:
+            # 三合一扫描（略，同两两合并逻辑，仅 union 判重与 MAX_STOPS 约束）
+            break
+        saving, idxs, merged = best
+        active = [r for t, r in enumerate(active) if t not in idxs] + [merged]
+    return active
+\end{Python}
+
+\subsection{模拟退火局部搜索分区（问题四对比方法）}
+
+\begin{Python}{模拟退火局部搜索（q4\_2.py 核心片段）}
+def scalar_score(plan):
+    return 1e6*plan["gap"] + 100*plan["total_need"] + 1e4*plan["balance"] + plan["redundancy"]
+
+def local_search(sim, components, comp_of, k, eval_fn, rng):
+    weights = [block_weight(sim, comp_of, i, components[i]) for i in range(len(components))]
+    assignment = initial_assignment(weights, k)   # 负载均衡贪心初始化
+    best = eval_fn(tuple(assignment)); cur = best
+    for it in range(1, N_ITER + 1):
+        temp = max(0.01, 2.0 * (1 - it / N_ITER))          # 线性退火
+        trial = list(cur)
+        if rng.random() < 0.72:                            # 72% 单块移动 / 28% 两块交换
+            trial[rng.randrange(len(components))] = rng.randrange(k)
+        else:
+            i, j = rng.sample(range(len(components)), 2)
+            trial[i], trial[j] = trial[j], trial[i]
+        if len(set(trial)) != k: continue                  # 每组至少 1 块
+        cand = eval_fn(tuple(trial))
+        d = scalar_score(cand) - scalar_score(cur)
+        if d < 0 or rng.random() < np.exp(-d / max(temp, 1e-9)):   # Metropolis 接受
+            cur = cand
+            if scalar_score(cur) < scalar_score(best): best = cur
+    return best, history
+\end{Python}
+
+上述代码与正文模型一一对应：能耗模型（附录 A.1）支撑第 5.2--5.5 节全部数值；集合划分求解器（附录 A.2）是三种多目标方法（第 5.6 节）的公共精确引擎；多站路线能耗（附录 A.3）是问题二、三运输侧的公共评价函数；通信链路判定（附录 A.4）是问题三通信保障的核心；资源峰值核算（附录 A.5）是问题四分区打分的核心；附录 A.6--A.8 分别给出问题二主方案（NSGA-II）、对比方法（贪心合并）与问题四对比方法（模拟退火）的求解主循环，与正文各问"主方案 + 对比方法"的比对一一对应。完整可运行代码、数据与结果文件随论文一并提交。
